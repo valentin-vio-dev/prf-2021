@@ -1,35 +1,31 @@
 @import '../../../styles.scss';
 
 nav {
-    background-color: $color-primary;
+    background-color: $color-white;
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
     justify-content: space-between;
     align-items: center;
     box-shadow: $shadow-normal;
     position: fixed;
-    width: 100%;
-
-    .title {
-        margin-left: $margin-normal;
-        a {
-            color: $color-white !important;
-            font-weight: bold;
-        }
-    }
+    height: 100vh;
+    top: 67px;
+    z-index: 1000;
 
     .navs {
         padding: $padding-small;
-        display: flex;
-        flex-direction: row;
+        
         ul {
             display: flex;
-            flex-direction: row;
+            flex-direction: column;
+            padding: 0px;
+
             li {
                 list-style-type: none;
+                margin: $margin-normal;
 
                 a {
-                    color: $color-white;
+                    color: $color-gray;
                     opacity: 0.5;
                     transition: $transition;
                     padding: $padding-normal;
@@ -37,10 +33,12 @@ nav {
 
                     &:hover {
                         opacity: 1;
+                        color: $color-primary;
                     }
 
                     &.active {
                         opacity: 1;
+                        color: $color-primary;
                     }
                 }
             }

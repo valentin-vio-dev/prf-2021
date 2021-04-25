@@ -2,14 +2,16 @@
 
 .container {
     width: 100%;
+    height: 100vh;
     display: flex;
     justify-content: center;
-    background-color: #EEEEEE;
+    background-color: #F5F5F5;
 
     .content {
         width: 1000px;
         margin: $margin-large;
         animation: page-anim 500ms;
+        margin-top: 100px;
     }
 }
 

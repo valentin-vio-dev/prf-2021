@@ -53,4 +53,8 @@ export class TopNavComponent implements OnInit {
     this.router.navigate(['login']);
   }
 
+  getPath() {
+    return window.location.pathname;
+  }
+
 }

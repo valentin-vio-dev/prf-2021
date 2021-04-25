@@ -8,7 +8,7 @@
                 <a
                 *ngIf="nav.label" 
                 [routerLink]="[nav.path]"
-                [class]="nav.label === activeLink ? 'active' : ''"
+                [class]="(nav.label === activeLink && !getPath().includes('admin')) || (nav.label === 'admin' && getPath().includes('admin')) ? 'active' : ''"
                 >{{ nav.name }}</a>
             </li>
         </ul>

@@ -1,0 +1,13 @@
+<nav>
+    <div class="navs">
+        <ul>
+            <li *ngFor="let nav of getNavs()">
+                <a
+                *ngIf="nav.label" 
+                [routerLink]="[nav.path]"
+                [class]="nav.label === activeLink ? 'active' : ''"
+                >{{ nav.name }}</a>
+            </li>
+        </ul>
+    </div>
+</nav>

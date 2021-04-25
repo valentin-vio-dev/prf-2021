@@ -3,6 +3,8 @@ import { RouterModule, Routes } from '@angular/router';
 import { AdminGuard } from './guards/admin/admin.guard';
 import { AuthGuard } from './guards/auth/auth.guard';
 import { LoginGuard } from './guards/login/login.guard';
+import { AdminCatalogComponent } from './pages/admin/admin-catalog/admin-catalog.component';
+import { AdminCustomersComponent } from './pages/admin/admin-customers/admin-customers.component';
 import { AdminComponent } from './pages/admin/admin.component';
 import { CatalogComponent } from './pages/catalog/catalog.component';
 import { HomeComponent } from './pages/home/home.component';
@@ -39,7 +41,24 @@ const routes: Routes = [
   {
     path: 'admin',
     component: AdminComponent,
-    canActivate: [AdminGuard]
+    canActivate: [AdminGuard, AuthGuard],
+    children: [
+      {
+        path: '',
+        redirectTo: 'customers', 
+        pathMatch: 'full',
+      },
+      {
+        path: 'customers',
+        component: AdminCustomersComponent,
+        canActivate: [AdminGuard, AuthGuard],
+      },
+      {
+        path: 'catalog',
+        component: AdminCatalogComponent,
+        canActivate: [AdminGuard, AuthGuard]
+      }
+    ]
   },
   {
     path: '**',

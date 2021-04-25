@@ -1,0 +1,17 @@
+@import '../../../../styles.scss';
+
+.header {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: $margin-normal;
+
+    h1, h2, h3 {
+        margin: 0px;
+    }
+    
+    .buttons {
+
+    }
+}

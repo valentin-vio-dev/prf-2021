@@ -16,6 +16,10 @@ import { ShoppingCartComponent } from './pages/shopping-cart/shopping-cart.compo
 import { AdminComponent } from './pages/admin/admin.component';
 import { NotFoundComponent } from './pages/not-found/not-found.component';
 import { ExpansionPanelComponent } from './components/expansion-panel/expansion-panel.component';
+import { AdminNavComponent } from './components/admin-nav/admin-nav.component';
+import { AdminCustomersComponent } from './pages/admin/admin-customers/admin-customers.component';
+import { AdminCatalogComponent } from './pages/admin/admin-catalog/admin-catalog.component';
+import { RightPanelComponent } from './components/right-panel/right-panel.component';
 
 @NgModule({
   declarations: [
@@ -30,7 +34,11 @@ import { ExpansionPanelComponent } from './components/expansion-panel/expansion-
     ShoppingCartComponent,
     AdminComponent,
     NotFoundComponent,
-    ExpansionPanelComponent
+    ExpansionPanelComponent,
+    AdminNavComponent,
+    AdminCustomersComponent,
+    AdminCatalogComponent,
+    RightPanelComponent
   ],
   imports: [
     BrowserModule,
