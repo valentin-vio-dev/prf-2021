@@ -16,7 +16,8 @@ $color-danger: #ff1a39;
 $color-white: #FFFFFF;
 $color-gray: #AAAAAA;
 
-$shadow-normal: 0px 5px 10px 0px rgba(0, 0, 0, 0.1);
+$shadow-normal: 0px 5px 5px 0px rgba(0, 0, 0, 0.1);
+//$shadow-normal: 0px 5px 10px 0px rgba(0, 0, 0, 0.1);
 
 $padding-large: 32px;
 $padding-normal: 16px;
@@ -53,6 +54,7 @@ button {
     cursor: pointer;
     outline: none;
     transition: $transition;
+    box-shadow: $shadow-normal;
 
     &:hover {
         background-color: $color-primary-light;
@@ -84,12 +86,13 @@ form {
 }
 
 .toast {
+    width: 200px;
     background: $color-white;
     padding: $padding-normal;
     position: absolute;
     top: $margin-normal;
-    left: $margin-normal;
-    right: $margin-normal;
+    left: calc(50% - 100px);
+    right: 50%;
     animation: toast-down $transition;
     box-shadow: $shadow-normal;
     border-radius: $border-radius;

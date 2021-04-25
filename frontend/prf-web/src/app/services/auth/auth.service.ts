@@ -15,4 +15,8 @@ export class AuthService {
   registrate(user: any) {
     return this.http.post('http://localhost:3000/auth/registrate', user);
   }
+
+  getCurrentUserId() {
+    return localStorage.getItem('uid') || null;
+  }
 }
