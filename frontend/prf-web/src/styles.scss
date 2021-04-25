@@ -10,8 +10,8 @@ body, html {
     font-family: 'Lato', sans-serif;
 }
 
-$color-primary: #273c75;
-$color-primary-light: #354e94;
+$color-primary: #1B9CFC;
+$color-primary-active: #4bb0fd;
 $color-danger: #ff1a39;
 $color-white: #FFFFFF;
 $color-gray: #AAAAAA;
@@ -36,6 +36,10 @@ $transition: 250ms;
     color: $color-primary;
 }
 
+.text-gray {
+    color: $color-gray;
+}
+
 .text-danger {
     color: $color-danger;
 }
@@ -57,7 +61,7 @@ button {
     box-shadow: $shadow-normal;
 
     &:hover {
-        background-color: $color-primary-light;
+        background-color: $color-primary-active;
     }
 }
 
@@ -68,7 +72,7 @@ a {
     transition: $transition;
 
     &:hover {
-        color: $color-primary-light;
+        color: $color-primary-active;
     }
 }
 
@@ -103,6 +107,10 @@ form {
     }
 }
 
+.floating-title {
+    animation: float-right $transition;
+}
+
 @keyframes toast-up {
     0% {
         top: $margin-normal;
@@ -121,4 +129,21 @@ form {
     100% {
         top: $margin-normal;
     }
+}
+
+@keyframes float-right {
+    0% {
+        margin-left: -200px;
+        opacity: 0;
+    }
+
+    100% {
+        margin-left: 0px;
+        opacity: 1;
+    }
+}
+
+hr {
+    border: none;
+    border-bottom: 1px solid $color-gray;
 }

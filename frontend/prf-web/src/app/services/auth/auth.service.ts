@@ -12,6 +12,10 @@ export class AuthService {
     return this.http.post('http://localhost:3000/auth/login', { email: email, password: password });
   }
 
+  logout() {
+    localStorage.removeItem('uid');
+  }
+
   registrate(user: any) {
     return this.http.post('http://localhost:3000/auth/registrate', user);
   }

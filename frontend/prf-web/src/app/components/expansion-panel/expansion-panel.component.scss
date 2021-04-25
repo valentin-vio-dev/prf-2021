@@ -1,0 +1,32 @@
+@import '../../../styles.scss';
+
+.container {
+    .header {
+        cursor: pointer;
+        transition: $transition;
+        padding: $padding-normal;
+        border-radius: $border-radius;
+    
+        &:hover {
+            background-color: rgba(0, 0, 0, 0.05);
+        }
+    }
+    
+    .content {
+        padding: $padding-normal;
+        animation: content-opening $transition;
+        transform-origin: top left;
+    }
+}
+
+@keyframes content-opening {
+    0% {
+        transform: scaleY(0);
+        opacity: 0;
+    }
+
+    100% {
+        transform: scaleY(1);
+        opacity: 1;
+    }
+}

@@ -1,0 +1,24 @@
+@import '../../../styles.scss';
+
+.container {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    background-color: #EEEEEE;
+
+    .content {
+        width: 1000px;
+        margin: $margin-large;
+        animation: page-anim 500ms;
+    }
+}
+
+@keyframes page-anim {
+    0% {
+        opacity: 0;
+    }
+
+    100% {
+        opacity: 1;
+    }
+}

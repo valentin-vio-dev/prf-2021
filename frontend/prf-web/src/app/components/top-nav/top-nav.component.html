@@ -1,0 +1,25 @@
+<nav>
+    <div class="title">
+        <a routerLink="/home">PRF 2021</a>
+    </div>
+    <div class="navs">
+        <ul>
+            <li *ngFor="let nav of navs">
+                <a
+                *ngIf="nav.label" 
+                [routerLink]="[nav.path]"
+                [class]="nav.label === activeLink ? 'active' : ''"
+                >{{ nav.name }}</a>
+            </li>
+        </ul>
+
+        <div class="user-section">
+            <p *ngIf="user">Hello, {{ user.firstname }}</p>
+            <ul>
+                <li>
+                    <a (click)="logout()">Logout</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
