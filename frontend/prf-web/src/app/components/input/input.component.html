@@ -1,0 +1,6 @@
+<div class="input-container">
+    <div class="label-container" *ngIf="label">
+        <p class="label">{{ label }}</p><p *ngIf="required" class="text-danger">*</p>
+    </div>
+    <ng-content></ng-content>
+</div>

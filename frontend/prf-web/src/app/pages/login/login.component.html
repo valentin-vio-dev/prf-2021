@@ -1,0 +1,42 @@
+<div class="container">
+    <app-card>
+        <div class="card-container">
+            <div class="login">
+                <form [formGroup]="loginForm">
+                    <h1 class="text-primary">Login</h1>
+                    <app-input label="E-mail" required="true">
+                        <input type="email" formControlName="email">
+                    </app-input>
+                    <app-input label="Password" required="true">
+                        <input type="password" formControlName="password">
+                    </app-input>
+
+                    <button (click)="login()">Login</button>
+                </form>
+            </div>
+
+            <div class="registration">
+                <form [formGroup]="regForm">
+                    <h1 class="text-primary">Create new account</h1>
+                    <app-input label="Firstname" required="true">
+                        <input type="text" formControlName="firstname">
+                    </app-input>
+                    <app-input label="Lastname" required="true">
+                        <input type="text" formControlName="lastname">
+                    </app-input>
+                    <app-input label="E-mail" required="true">
+                        <input type="email" formControlName="email">
+                    </app-input>
+                    <app-input label="Password" required="true">
+                        <input type="password" formControlName="password">
+                    </app-input>
+                    <app-input label="Password again" required="true">
+                        <input type="password" formControlName="passwordAgain">
+                    </app-input>
+
+                    <button (click)="registrate()">Registrate</button>
+                </form>
+            </div>
+        </div>
+    </app-card>
+</div>

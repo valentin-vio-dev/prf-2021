@@ -1,0 +1,121 @@
+
+@font-face {
+    font-family: 'Lato';
+    src: url('./assets/fonts/Lato/Lato-Regular.ttf');
+}
+
+body, html {
+    padding: 0px;
+    margin: 0px;
+    font-family: 'Lato', sans-serif;
+}
+
+$color-primary: #273c75;
+$color-primary-light: #354e94;
+$color-danger: #ff1a39;
+$color-white: #FFFFFF;
+$color-gray: #AAAAAA;
+
+$shadow-normal: 0px 5px 10px 0px rgba(0, 0, 0, 0.1);
+
+$padding-large: 32px;
+$padding-normal: 16px;
+$padding-small: 8px;
+
+$margin-large: 32px;
+$margin-normal: 16px;
+$margin-small: 8px;
+
+$border-radius: 5px;
+
+$transition: 250ms;
+
+
+.text-primary {
+    color: $color-primary;
+}
+
+.text-danger {
+    color: $color-danger;
+}
+
+h1, h2, h3, h4, h5 {
+    margin-top: 0px;
+}
+
+button {
+    padding: $padding-normal;
+    background-color: $color-primary;
+    color: $color-white;
+    border: none;
+    border-radius: $border-radius;
+    width: 100%;
+    cursor: pointer;
+    outline: none;
+    transition: $transition;
+
+    &:hover {
+        background-color: $color-primary-light;
+    }
+}
+
+a {
+    color: $color-primary;
+    text-decoration: none;
+
+    transition: $transition;
+
+    &:hover {
+        color: $color-primary-light;
+    }
+}
+
+.mt {
+    margin-top: $margin-normal;
+}
+
+.mb {
+    margin-bottom: $margin-normal;
+}
+
+form {
+    width: 100%;
+    height: 100%;
+}
+
+.toast {
+    background: $color-white;
+    padding: $padding-normal;
+    position: absolute;
+    top: $margin-normal;
+    left: $margin-normal;
+    right: $margin-normal;
+    animation: toast-down $transition;
+    box-shadow: $shadow-normal;
+    border-radius: $border-radius;
+    color: $color-primary;
+
+    &.up {
+        animation: toast-up $transition;
+    }
+}
+
+@keyframes toast-up {
+    0% {
+        top: $margin-normal;
+    }
+
+    100% {
+        top: -200px;
+    }
+}
+
+@keyframes toast-down {
+    0% {
+        top: -200px;
+    }
+
+    100% {
+        top: $margin-normal;
+    }
+}
