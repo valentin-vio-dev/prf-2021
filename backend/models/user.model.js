@@ -12,7 +12,10 @@ var userSchema = new mongoose.Schema({
 userSchema.pre('save', function(next) {
     const user = this;
     if (user.isModified('password')) {
-        user.accessLevel = 'user';
+        if (user.accessLevel != 'admin' || user.accessLevel != 'user') {
+            user.accessLevel = 'user';
+        }
+        
         bcrypt.genSalt(10, function(err, salt) {
             if (err) {
                 return next(err);

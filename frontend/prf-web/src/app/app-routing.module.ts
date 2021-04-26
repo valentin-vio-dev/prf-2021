@@ -4,7 +4,7 @@ import { AdminGuard } from './guards/admin/admin.guard';
 import { AuthGuard } from './guards/auth/auth.guard';
 import { LoginGuard } from './guards/login/login.guard';
 import { AdminCatalogComponent } from './pages/admin/admin-catalog/admin-catalog.component';
-import { AdminCustomersComponent } from './pages/admin/admin-customers/admin-customers.component';
+import { AdminUsersComponent } from './pages/admin/admin-users/admin-users.component';
 import { AdminComponent } from './pages/admin/admin.component';
 import { CatalogComponent } from './pages/catalog/catalog.component';
 import { HomeComponent } from './pages/home/home.component';
@@ -50,7 +50,7 @@ const routes: Routes = [
       },
       {
         path: 'users',
-        component: AdminCustomersComponent,
+        component: AdminUsersComponent,
         canActivate: [AdminGuard, AuthGuard],
       },
       {

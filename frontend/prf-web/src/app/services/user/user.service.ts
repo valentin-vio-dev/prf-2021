@@ -20,4 +20,8 @@ export class UserService {
   getAllUser() {
     return this.http.get('http://localhost:3000/user');
   }
+
+  addUser(user: any) {
+    return this.http.post('http://localhost:3000/user', user);
+  }
 }

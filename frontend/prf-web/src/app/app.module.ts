@@ -17,10 +17,11 @@ import { AdminComponent } from './pages/admin/admin.component';
 import { NotFoundComponent } from './pages/not-found/not-found.component';
 import { ExpansionPanelComponent } from './components/expansion-panel/expansion-panel.component';
 import { AdminNavComponent } from './components/admin-nav/admin-nav.component';
-import { AdminCustomersComponent } from './pages/admin/admin-customers/admin-customers.component';
+import { AdminUsersComponent } from './pages/admin/admin-users/admin-users.component';
 import { AdminCatalogComponent } from './pages/admin/admin-catalog/admin-catalog.component';
 import { RightPanelComponent } from './components/right-panel/right-panel.component';
 import { AddItemComponent } from './pages/admin/admin-catalog/add-item/add-item.component';
+import { AdminUserAddEditComponent } from './pages/admin/admin-users/admin-user-add-edit/admin-user-add-edit.component';
 
 @NgModule({
   declarations: [
@@ -37,10 +38,11 @@ import { AddItemComponent } from './pages/admin/admin-catalog/add-item/add-item.
     NotFoundComponent,
     ExpansionPanelComponent,
     AdminNavComponent,
-    AdminCustomersComponent,
+    AdminUsersComponent,
     AdminCatalogComponent,
     RightPanelComponent,
-    AddItemComponent
+    AddItemComponent,
+    AdminUserAddEditComponent
   ],
   imports: [
     BrowserModule,

@@ -8,6 +8,35 @@ const User = mongoose.model('user');
 
 const reqContains = require('../utils/req-contains');
 
+module.exports.addUser = function(req, res, next) {
+    if (reqContains(req, ['firstname', 'lastname', 'email', 'password', 'passwordAgain', 'accessLevel'])) {
+        if (req.body.password !== req.body.passwordAgain) return res.status(400).send(errorResponse('The passwords are not the same'));
+        User.findOne({ email: req.body.email }, (err, user) => {
+            if (err) return res.status(500).send(errorResponse(err));
+            if (user) return res.status(400).send(errorResponse('This email already exists!'));
+            
+            const newUser = new User({
+                firstname: req.body.firstname,
+                lastname: req.body.lastname,
+                email: req.body.email,
+                password: req.body.password,
+                accessLevel: req.body.accessLevel
+            });
+
+            newUser.save((error) => {
+                if(error) return res.status(500).send(errorResponse(error));
+                User.findOne({ email: req.body.email }, (erro, usero) => {
+                    if (erro) return res.status(500).send(errorResponse(err));
+                    if (!usero) return res.status(400).send(errorResponse('User not found'));
+                    return res.status(200).send(successResponse('User added!', { user: usero }));
+                });
+            });
+        });
+    } else {
+        return res.status(400).send(errorResponse('Some of the fields are missing!'));
+    }
+}
+
 module.exports.getAll = function(req, res, next) {
     User.find((error, users) => {
         if (error) return res.status(500).send(errorResponse(error));

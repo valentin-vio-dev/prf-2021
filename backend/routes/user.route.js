@@ -5,5 +5,6 @@ const userController = require('../controllers/user.controller');
 router.get('/', userController.getAll);
 router.get('/user', userController.getById);
 router.put('/update/access', userController.updateAccessLevel);
+router.post('/', userController.addUser);
 
 module.exports = router;
