@@ -20,6 +20,7 @@ import { AdminNavComponent } from './components/admin-nav/admin-nav.component';
 import { AdminCustomersComponent } from './pages/admin/admin-customers/admin-customers.component';
 import { AdminCatalogComponent } from './pages/admin/admin-catalog/admin-catalog.component';
 import { RightPanelComponent } from './components/right-panel/right-panel.component';
+import { AddItemComponent } from './pages/admin/admin-catalog/add-item/add-item.component';
 
 @NgModule({
   declarations: [
@@ -38,7 +39,8 @@ import { RightPanelComponent } from './components/right-panel/right-panel.compon
     AdminNavComponent,
     AdminCustomersComponent,
     AdminCatalogComponent,
-    RightPanelComponent
+    RightPanelComponent,
+    AddItemComponent
   ],
   imports: [
     BrowserModule,

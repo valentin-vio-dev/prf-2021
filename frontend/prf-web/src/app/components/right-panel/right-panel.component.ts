@@ -12,4 +12,16 @@ export class RightPanelComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  close(event: MouseEvent) {
+    if (event.clientX > window.innerWidth - 400 - 32) return;
+
+    let rightPanel = document.getElementsByTagName('app-right-panel')[0];
+    let panel = document.getElementsByClassName('panel')[0];
+    panel.className = 'panel close';
+
+    setTimeout(() => {
+      document.body.removeChild(rightPanel);
+    }, 200);
+  }
+
 }
