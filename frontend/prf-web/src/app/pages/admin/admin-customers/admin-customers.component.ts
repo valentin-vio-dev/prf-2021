@@ -17,4 +17,16 @@ export class AdminCustomersComponent implements OnInit {
     });
   }
 
+  getCustomers() {
+    return this.users.filter(user => {
+      return user.accessLevel == 'user';
+    });
+  }
+
+  getAdmins() {
+    return this.users.filter(user => {
+      return user.accessLevel == 'admin';
+    });
+  }
+
 }

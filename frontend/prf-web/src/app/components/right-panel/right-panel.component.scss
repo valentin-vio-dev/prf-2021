@@ -5,51 +5,33 @@
     top: 0;
     left: 0;
     width: 100%;
-    height: 100%;
+    height: 100vh;
     z-index: 100;
     background-color: rgba(0, 0, 0, 0.5);
     animation: appear $transition;
+    box-sizing: content-box;
 
     .panel {
         box-sizing: border-box;
         width: 400px;
-        height: 100vh;
+        height: 100%;
         overflow-y: auto;
-        padding: $padding-normal;
+        padding: $padding-large;
         box-shadow: $shadow-normal;
         position: absolute;
-        right: 0px;
+        right: -500px;
         top: 0px;
         bottom: 0px;
         background-color: $color-white;
+        transition: $transition;
         
         &.open {
-            animation: float-left $transition;
+            right: 0px;
         }
 
         &.close {
-            animation: float-right $transition;
+            right: -500px;
         }
-    }
-}
-
-@keyframes float-left {
-    0% {
-        right: -500px;
-    }
-
-    100% {
-        right: 0px;
-    }
-}
-
-@keyframes float-right {
-    0% {
-        right: 0px;
-    }
-
-    100% {
-        right: -500px;
     }
 }
 

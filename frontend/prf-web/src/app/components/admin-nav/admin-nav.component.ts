@@ -19,7 +19,7 @@ export class AdminNavComponent implements OnInit {
 
   getNavs() {
     return [
-      { name: 'Customers', path: '/admin/customers', label: 'customers' },
+      { name: 'Users', path: '/admin/users', label: 'users' },
       { name: 'Catalog', path: '/admin/catalog', label: 'catalog' },
     ];
   }

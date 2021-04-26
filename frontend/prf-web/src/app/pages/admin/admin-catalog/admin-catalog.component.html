@@ -1,14 +1,27 @@
 <app-top-nav></app-top-nav>
 <app-admin-nav></app-admin-nav>
 <app-page>
-    <h1 class="text-primary floating-title">Admin</h1>
+    <h1 class="text-primary floating-title">Admin - Catalog</h1>
 
     <div class="catalog">
         <div class="header">
             <h3>Catalog</h3>
             <div class="buttons">
-                <button (click)="addCatalogItem()">Add new item</button>
+                <button (click)="addCatalogItem()">Add new product</button>
             </div>
         </div>
+        <app-card *ngFor="let product of products">
+            <app-expansion-panel>
+                <div header c>
+                    <span class="text-primary">{{ product.name }} </span>
+                </div>
+                <div buttons class="row">
+                    <button (click)="editProduct(product)" class="ml">Edit</button>
+                </div>
+                <div content>
+                    <h3>Details</h3>
+                </div>
+            </app-expansion-panel>
+        </app-card>
     </div>
 </app-page>

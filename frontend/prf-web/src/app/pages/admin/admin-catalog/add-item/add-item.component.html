@@ -1,29 +1,42 @@
-<form >
-    <h1 class="text-primary">Add new item</h1>
+<form [formGroup]="form">
+    <h1 class="text-primary">{{ editing ? 'Edit ' : 'Add new ' }} product</h1>
     <app-input label="Name" required="true">
-        <input type="text" >
+        <input type="text" formControlName="name">
     </app-input>
     <app-input label="Manufacturer" required="true">
-        <input type="text" >
+        <input type="text" formControlName="manufacturer">
     </app-input>
-    <app-input label="Interface" required="true">
-        <input type="text" >
+    <app-input label="Interface">
+        <input type="text" formControlName="interface">
     </app-input>
     <app-input label="Chipset" required="true">
-        <input type="text" >
+        <input type="text" formControlName="chipset">
     </app-input>
-    <app-input label="Memory size" required="true">
-        <input type="text" >
+    <app-input label="Memory size">
+        <input type="number" formControlName="memory_size" min="0">
     </app-input>
-    <app-input label="Price" required="true">
-        <input type="text" >
+    <app-input label="Price">
+        <input type="number" formControlName="price" min="0">
     </app-input>
-    <app-input label="Avaible" required="true">
-        <input type="checkbox" >
+    <app-input label="Avaible">
+        <input type="checkbox" formControlName="avaible">
     </app-input>
-    <app-input label="Description" required="true">
-        <textarea cols="45" rows="6"></textarea>
+    <app-input label="Image">
+        <input type="file" class="hidden" id="input-file">
+        <div class="image-selection" (click)="selectImage()">
+            <div class="image-container" *ngIf="selectedImage; else noImage">
+                <div class="shader" *ngIf="selectedImage"></div>
+                <img [src]="selectedImage" alt="">
+            </div>
+            <ng-template #noImage>
+                <span class="o-50">Click to select image.</span>
+            </ng-template>
+        </div>
+    </app-input>
+    <app-input label="Description">
+        <textarea cols="45" rows="6" formControlName="description"></textarea>
     </app-input>
 
-    <button >Add</button>
+    <button (click)="deleteProduct()" class="clear mb" *ngIf="editing">Delete</button>
+    <button (click)="submit()" class="submit">{{ editing ? 'Edit' : 'Add' }}</button>
 </form>

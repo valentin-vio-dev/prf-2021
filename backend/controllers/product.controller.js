@@ -7,18 +7,21 @@ const Product = mongoose.model('product');
 const reqContains = require('../utils/req-contains')
 const createModelObj = require('../utils/create-model-obj')
 
+const getSchemaKeys = require('../utils/get-schema-keys');
+
 module.exports.add = function(req, res, next) {
     let fields = ['name', 'manufacturer', 'chipset', 'avaible'];
     if (reqContains(req, fields)) {
-        Product.findOne({ name: req.body.name }, (err, product) => {
-            if (err) return res.status(500).send(errorResponse(err));
-            if (product) return res.status(400).send(errorResponse('Product already exists!'));
-
-            let newProduct = new Product(createModelObj(req, fields));
-            newProduct.save((error) => {
-                if(error) return res.status(500).send(errorResponse(error));
-                return res.status(200).send(successResponse('Product added', { product: newProduct }));
-            });
+        let bodyKeys = Object.keys(req.body);
+        let schemakeys = getSchemaKeys(Product);
+        schemakeys = schemakeys.filter(key => {
+            return bodyKeys.includes(key);
+        });
+        
+        let newProduct = new Product(createModelObj(req, schemakeys));
+        newProduct.save((error) => {
+            if(error) return res.status(500).send(errorResponse(error));
+            return res.status(200).send(successResponse('Product added', { product: newProduct }));
         });
     } else {
         return res.status(400).send(errorResponse('Some fields are missing!'));

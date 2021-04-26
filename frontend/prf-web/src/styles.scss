@@ -4,7 +4,7 @@
     src: url('./assets/fonts/Lato/Lato-Regular.ttf');
 }
 
-body, html {
+body, html, textarea {
     padding: 0px;
     margin: 0px;
     font-family: 'Lato', sans-serif;
@@ -12,6 +12,8 @@ body, html {
 
 $color-primary: #1B9CFC;
 $color-primary-active: #4bb0fd;
+$color-primary-light: #e7f5ff;
+$color-primary-light-active: #b0ddff;
 $color-danger: #ff1a39;
 $color-white: #FFFFFF;
 $color-gray: #AAAAAA;
@@ -63,6 +65,16 @@ button {
     &:hover {
         background-color: $color-primary-active;
     }
+
+    &.clear {
+        background-color: $color-primary-light;
+        color: $color-primary;
+        box-shadow: none;
+
+        &:hover {
+            background-color: $color-primary-light-active;
+        }
+    }
 }
 
 a {
@@ -84,9 +96,18 @@ a {
     margin-bottom: $margin-normal;
 }
 
+.ml {
+    margin-left: $margin-normal;
+}
+
 form {
     width: 100%;
     height: 100%;
+}
+
+.row {
+    display: flex;
+    flex-direction: row;
 }
 
 .toast {
@@ -101,10 +122,15 @@ form {
     box-shadow: $shadow-normal;
     border-radius: $border-radius;
     color: $color-primary;
+    z-index: 1000;
 
     &.up {
         animation: toast-up $transition;
     }
+}
+
+.o-50 {
+    opacity: 0.5;
 }
 
 .floating-title {
@@ -146,4 +172,12 @@ form {
 hr {
     border: none;
     border-bottom: 1px solid $color-gray;
+}
+
+.hidden {
+    display: none;
+}
+
+.no-scroll {
+    overflow-y: hidden;
 }

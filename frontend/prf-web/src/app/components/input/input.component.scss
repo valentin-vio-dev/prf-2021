@@ -24,7 +24,7 @@
             }
         }
 
-        ::ng-deep input {
+        ::ng-deep input[type=text], ::ng-deep input[type=number], ::ng-deep input[type=email], ::ng-deep input[type=password] {
             width: 100%;
             border: 1px solid transparent;
             outline: none;
@@ -34,6 +34,27 @@
             padding: $padding-normal;
             box-sizing: border-box;
     
+            &:focus {
+                background: $color-white;
+                border: 1px solid $color-primary;
+            }
+        }
+
+        ::ng-deep input[type=checkbox] {
+            width: 15px;
+            height: 15px;
+        }
+
+        ::ng-deep textarea {
+            width: 100%;
+            border: 1px solid transparent;
+            outline: none;
+            background: #F6F6F6;
+            border-radius: $border-radius;
+            transition: $transition;
+            padding: $padding-normal;
+            box-sizing: border-box;
+
             &:focus {
                 background: $color-white;
                 border: 1px solid $color-primary;

@@ -45,11 +45,11 @@ const routes: Routes = [
     children: [
       {
         path: '',
-        redirectTo: 'customers', 
+        redirectTo: 'users', 
         pathMatch: 'full',
       },
       {
-        path: 'customers',
+        path: 'users',
         component: AdminCustomersComponent,
         canActivate: [AdminGuard, AuthGuard],
       },

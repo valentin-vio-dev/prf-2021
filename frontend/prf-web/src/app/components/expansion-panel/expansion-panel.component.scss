@@ -1,32 +1,41 @@
 @import '../../../styles.scss';
 
 .container {
-    .header {
-        cursor: pointer;
+    position: relative;
+    overflow: hidden;
+    
+    .content {
+        padding: $padding-normal;
+        transform-origin: top left;
         transition: $transition;
+
+        &.open {
+            margin-top: 0px;
+        }
+
+        &.close {
+            margin-top: -200px;
+        }
+    }
+}
+
+.header {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+
+    .header-title {
+        width: 100%;
+        height: 100%;
         padding: $padding-normal;
         border-radius: $border-radius;
-    
+        transition: $transition;
+        cursor: pointer;
+
         &:hover {
             background-color: rgba(0, 0, 0, 0.05);
         }
     }
-    
-    .content {
-        padding: $padding-normal;
-        animation: content-opening $transition;
-        transform-origin: top left;
-    }
-}
-
-@keyframes content-opening {
-    0% {
-        transform: scaleY(0);
-        opacity: 0;
-    }
-
-    100% {
-        transform: scaleY(1);
-        opacity: 1;
-    }
+ 
 }

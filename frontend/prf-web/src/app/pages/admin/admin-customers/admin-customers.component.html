@@ -1,7 +1,32 @@
 <app-top-nav></app-top-nav>
 <app-admin-nav></app-admin-nav>
 <app-page>
-    <h1 class="text-primary floating-title">Admin</h1>
+    <h1 class="text-primary floating-title">Admin - Users</h1>
+
+    <div class="users">
+        <div class="header">
+            <h3>Admins</h3>
+            <div class="buttons">
+                <button>Add new admin</button>
+            </div>
+        </div>
+        <app-card *ngFor="let user of getAdmins()">
+            <app-expansion-panel>
+                <div header>
+                    <div>
+                        <span class="text-primary">{{ user.firstname + ' ' + user.lastname }} </span>
+                        <span class="text-gray">({{ user.email }})</span>
+                    </div>
+                </div>
+                <div buttons class="row">
+                    <button class="ml">Edit</button>
+                </div>
+                <div content>
+                    <h3>Orders</h3>
+                </div>
+            </app-expansion-panel>
+        </app-card>
+    </div>
 
     <div class="users">
         <div class="header">
@@ -10,14 +35,16 @@
                 <button>Add new customer</button>
             </div>
         </div>
-        <app-card *ngFor="let user of users">
+        <app-card *ngFor="let user of getCustomers()">
             <app-expansion-panel>
                 <div header>
                     <div>
                         <span class="text-primary">{{ user.firstname + ' ' + user.lastname }} </span>
-                        <span class="text-primary">({{ user.accessLevel }}) </span>
                         <span class="text-gray">({{ user.email }})</span>
                     </div>
+                </div>
+                <div buttons class="row">
+                    <button class="ml">Edit</button>
                 </div>
                 <div content>
                     <h3>Orders</h3>

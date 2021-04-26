@@ -1,8 +1,14 @@
-<div class="container">
-    <div class="header" (click)="toggle()">
+<div class="header" >
+    <div class="header-title" (click)="toggle()">
         <ng-content select="[header]"></ng-content>
     </div>
-    <div class="content" *ngIf="open">
+    <div class="buttons">
+        <ng-content select="[buttons]"></ng-content>
+    </div>
+</div>
+
+<div class="container">
+    <div [class]="open ? 'content open' : 'content close'">
         <ng-content select="[content]"></ng-content>
     </div>
 </div>
