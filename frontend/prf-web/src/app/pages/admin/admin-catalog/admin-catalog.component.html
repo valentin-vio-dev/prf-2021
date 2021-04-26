@@ -20,6 +20,45 @@
                 </div>
                 <div content>
                     <h3>Details</h3>
+                    <div class="item">
+                        <div class="image-container">
+                            <img [src]="product.image || '../../../../../../assets/images/default_image.png'" alt="">
+                        </div>
+                        <div class="texts">
+                            <div class="row">
+                                <span class="text-primary title">Name</span>
+                                <span class="value">{{ product.name || '-' }}</span>
+                            </div>
+                            <div class="row">
+                                <span class="text-primary title">Manufacturer</span>
+                                <span class="value">{{ product.manufacturer || '-' }}</span>
+                            </div>
+                            <div class="row">
+                                <span class="text-primary title">Interface</span>
+                                <span class="value">{{ product.interface || '-' }}</span>
+                            </div>
+                            <div class="row">
+                                <span class="text-primary title">Chipset</span>
+                                <span class="value">{{ product.chipset || '-' }}</span>
+                            </div>
+                            <div class="row">
+                                <span class="text-primary title">Memory size</span>
+                                <span class="value">{{ product.memory_size || '-' }} <span *ngIf="product.memory_size">MB</span></span>
+                            </div>
+                            <div class="row">
+                                <span class="text-primary title">Price</span>
+                                <span class="value">{{ product.price || '-' }} <span *ngIf="product.price"> Ft,-</span></span>
+                            </div>
+                            <div class="row">
+                                <span class="text-primary title">Avaibility</span>
+                                <span class="value" [style.color]="product.avaible ? '#afff1a' : '#ff1a39'">{{ product.avaible ? 'Avaible' : 'Not avaible' }}</span>
+                            </div>
+                            <div class="row">
+                                <span class="text-primary title">Description</span>
+                                <span class="value">{{ product.description || '-' }}</span>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </app-expansion-panel>
         </app-card>

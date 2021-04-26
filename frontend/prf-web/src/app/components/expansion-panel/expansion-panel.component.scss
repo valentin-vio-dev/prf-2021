@@ -3,19 +3,20 @@
 .container {
     position: relative;
     overflow: hidden;
+    padding-left: $padding-normal;
     
     .content {
         padding: $padding-normal;
         transform-origin: top left;
         transition: $transition;
 
-        &.open {
+        /*&.open {
             margin-top: 0px;
         }
 
         &.close {
             margin-top: -200px;
-        }
+        }*/
     }
 }
 

@@ -7,8 +7,12 @@
     </div>
 </div>
 
-<div class="container">
-    <div [class]="open ? 'content open' : 'content close'">
+<div class="container" #container>
+    <div 
+    [style.margin-top]="open ? '0px' : getHeight()"
+    [style.transition]="visibility == 'visible' ? '250ms' : '0ms'"
+    [style.visibility]="visibility"
+    >
         <ng-content select="[content]"></ng-content>
     </div>
 </div>
