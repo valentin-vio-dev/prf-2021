@@ -3,8 +3,11 @@
         <a routerLink="/home">PRF 2021</a>
     </div>
     <div class="navs">
-        <ul>
+        <ul *ngIf="auth.getCurrentUserId(); else noUser">
             <li *ngFor="let nav of navs">
+                <div class="cart-items" *ngIf="nav.label == 'shopping-cart'">
+                    2
+                </div>
                 <a
                 *ngIf="nav.label" 
                 [routerLink]="[nav.path]"
@@ -12,8 +15,15 @@
                 >{{ nav.name }}</a>
             </li>
         </ul>
+        <ng-template #noUser>
+            <ul>
+                <li>
+                    <a [routerLink]="['/login']">Login</a>
+                </li>
+            </ul>
+        </ng-template>
 
-        <div class="user-section">
+        <div class="user-section" *ngIf="auth.getCurrentUserId()">
             <p *ngIf="user">Hello, {{ user.firstname }}</p>
             <ul>
                 <li>

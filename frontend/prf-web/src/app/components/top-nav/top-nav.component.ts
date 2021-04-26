@@ -19,13 +19,15 @@ export class TopNavComponent implements OnInit {
     private router: Router,
     private toastService: ToastService,
     private userService: UserService,
-    private auth: AuthService
+    public auth: AuthService
     ) { }
 
   ngOnInit(): void {
     this.route.url.subscribe(url => {
       this.activeLink = url[0].path;
     });
+
+    if (!this.auth.getCurrentUserId()) return;
 
     this.userService.getCurrentUser().subscribe((res: any) => {
       this.user = res.data.user;
