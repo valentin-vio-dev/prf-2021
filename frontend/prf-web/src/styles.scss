@@ -10,13 +10,16 @@ body, html, textarea {
     font-family: 'Lato', sans-serif;
 }
 
-$color-primary: #1B9CFC;
-$color-primary-active: #4bb0fd;
-$color-primary-light: #e7f5ff;
-$color-primary-light-active: #b0ddff;
+
+
+$color-primary: #fc881b;
+$color-primary-active: #ffa551;
+$color-primary-light: #ffe6d0;
+$color-primary-light-active: #fff4ea;
 $color-danger: #ff1a39;
 $color-white: #FFFFFF;
 $color-gray: #AAAAAA;
+$color-text: #2f343a;
 
 $shadow-normal: 0px 5px 5px 0px rgba(0, 0, 0, 0.1);
 //$shadow-normal: 0px 5px 10px 0px rgba(0, 0, 0, 0.1);
@@ -33,6 +36,9 @@ $border-radius: 5px;
 
 $transition: 250ms;
 
+* {
+    color: $color-text;
+}
 
 .text-primary {
     color: $color-primary;
