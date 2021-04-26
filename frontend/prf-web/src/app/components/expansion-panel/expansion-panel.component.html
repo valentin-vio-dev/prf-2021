@@ -1,4 +1,4 @@
-<div class="header" >
+<div class="header">
     <div class="header-title" (click)="toggle()">
         <ng-content select="[header]"></ng-content>
     </div>
@@ -11,8 +11,7 @@
     <div 
     [style.margin-top]="open ? '0px' : getHeight()"
     [style.transition]="visibility == 'visible' ? '250ms' : '0ms'"
-    [style.visibility]="visibility"
-    >
+    [style.visibility]="visibility">
         <ng-content select="[content]"></ng-content>
     </div>
 </div>
