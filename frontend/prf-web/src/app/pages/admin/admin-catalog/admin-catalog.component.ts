@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Subscription } from 'rxjs';
 import { RightPanelComponent } from 'src/app/components/right-panel/right-panel.component';
 import { TopNavComponent } from 'src/app/components/top-nav/top-nav.component';
+import { GlobalService } from 'src/app/services/global/global.service';
 import { ModalService } from 'src/app/services/modal/modal.service';
 import { PanelService } from 'src/app/services/panel/panel.service';
 import { ProductService } from 'src/app/services/product/product.service';
@@ -17,10 +18,17 @@ export class AdminCatalogComponent implements OnInit {
   products: any[] = [];
   closedSub: Subscription | any;
 
-  constructor(private panelService: PanelService, private productService: ProductService, private toastService: ToastService) { }
+  constructor(
+    private panelService: PanelService,
+    private productService: ProductService,
+    private globalService: GlobalService
+  ) { }
 
   ngOnInit(): void {
     this.getProducts();
+    this.globalService.productChangeEmitter.subscribe(() => {
+      this.getProducts();
+    })
   }
 
   addCatalogItem() {
@@ -36,16 +44,6 @@ export class AdminCatalogComponent implements OnInit {
   getProducts() {
     this.productService.getAll().subscribe((res: any) => {
       this.products = res.data.products;
-    });
-  }
-
-  editProduct(product: any) {
-    this.panelService.create(AddItemComponent, product);
-    this.closedSub = this.panelService.afterClosed().subscribe((res: any) => {
-      this.closedSub.unsubscribe();
-      if (res == 'ADDED' || res == 'EDITED' || res == 'DELETED') {
-        this.getProducts();
-      }
     });
   }
 

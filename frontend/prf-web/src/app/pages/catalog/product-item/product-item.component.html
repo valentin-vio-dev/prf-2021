@@ -1,19 +1,18 @@
 <app-card>
-    <div class="mb">
-        <span class="text-primary">{{ product.name }}</span>
-    </div>
-    <div class="image-holder mb">
-        <img [src]="product.image || '../../../../../../assets/images/default_image.png'" alt="">
-    </div>
     
-    <div class="price mb">
-        <span class="text-primary title center">Price</span>
-        <span class="value center">{{ product.price || '-' }} <span *ngIf="product.price"> Ft,-</span></span>
-    </div>
     
     <app-expansion-panel>
-        <div header class="center">
-            <span class="text-primary">More information</span>
+        <div header class="">
+            <div class="mb">
+                <span class="text-primary">{{ product.name }}</span>
+            </div>
+            <div class="image-holder mb">
+                <img [src]="product.image || '../../../../../../assets/images/default_image.png'" alt="">
+            </div>
+            <div class="price mb">
+                <span class="text-primary title center">Price</span>
+                <span class="value center">{{ product.price || '-' }} <span *ngIf="product.price"> Ft,-</span></span>
+            </div>
         </div>
         <div content>
             <div class="texts">
@@ -52,5 +51,7 @@
             </div>
         </div>
     </app-expansion-panel>
-    <button class="mt" (click)="addToCart()">Add to shopping cart</button>
+    <button class="mt" (click)="addToCart()" *ngIf="type == 'catalog'">Add to shopping cart</button>
+    <button class="mt" (click)="addToCart()" *ngIf="type == 'cart'">Remove from shopping cart</button>
+    <button class="mt" (click)="editProduct()" *ngIf="type == 'admin'">Edit</button>
 </app-card>

@@ -16,6 +16,10 @@ export class ProductService {
     return this.http.get('http://localhost:3000/product');
   }
 
+  getById(id: string) {
+    return this.http.get('http://localhost:3000/product/id?id=' + id);
+  }
+
   delete(id: string) {
     return this.http.delete('http://localhost:3000/product', { body: { _id: id } } as any);
   }

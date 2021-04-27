@@ -5,6 +5,7 @@ import { EventEmitter, Injectable } from '@angular/core';
 })
 export class GlobalService {
   shoppingCartChangeEmitter: EventEmitter<any> = new EventEmitter();
+  productChangeEmitter: EventEmitter<any> = new EventEmitter();
 
   constructor() { }
 
@@ -26,5 +27,9 @@ export class GlobalService {
     let cart = this.getCart();
     cart.products.push({ time: Date.now(), productId: productId });
     localStorage.setItem('cart', JSON.stringify(cart));
+  }
+
+  changeProduct() {
+    this.productChangeEmitter.emit();
   }
 }

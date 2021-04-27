@@ -96,8 +96,8 @@ module.exports.getFiltered = function(req, res, next) {
 }
 
 module.exports.getById = function(req, res, next) {
-    if (req.body._id) {
-        Product.findOne({ _id: mongoose.Types.ObjectId(req.body._id) }, (err, product) => {
+    if (req.query.id) {
+        Product.findOne({ _id: mongoose.Types.ObjectId(req.query.id) }, (err, product) => {
             if (err) return res.status(500).send(errorResponse(err));
             if (!product) return res.status(404).send(errorResponse('Product not found!'));
 

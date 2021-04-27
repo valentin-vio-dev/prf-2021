@@ -40,10 +40,6 @@ export class TopNavComponent implements OnInit {
         });
       }
     });
-
-    this.globalService.shoppingCartChangeEmitter.subscribe(() => {
-      console.log(2131)
-    });
   }
 
   getNavs() {
