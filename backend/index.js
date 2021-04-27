@@ -27,7 +27,7 @@ require('./models/user.model');
 require('./models/product.model');
 require('./models/order.model');
 
-app.use(cookieParser());
+app.use(cookieParser({ secret: process.env.APP_SECRET}));
 app.use(express.urlencoded({ extended: true, limit: '50mb'}));
 app.use(express.json({ limit: '50mb' }));
 app.use(expressSession({ secret: process.env.APP_SECRET, resave: true, saveUninitialized: false }));
