@@ -13,6 +13,7 @@ export class AuthService {
   }
 
   logout() {
+    localStorage.setItem('cart', JSON.stringify({ products: [] }));
     localStorage.removeItem('uid');
   }
 
