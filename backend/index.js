@@ -11,7 +11,8 @@ dotenv.config();
 
 const app = express();
 const port = process.env.PORT || 3000;
-const dbUrl = 'mongodb://localhost:27017';
+//const dbUrl = 'mongodb://localhost:27017';
+const dbUrl = `mongodb+srv://valentin-vio:${process.env.DATABASE_PASSWORD}@cluster0.9tmpk.mongodb.net/myFirstDatabase?retryWrites=true&w=majority`;
 
 mongoose.connect(dbUrl);
 mongoose.connection.on('connected', () => {
