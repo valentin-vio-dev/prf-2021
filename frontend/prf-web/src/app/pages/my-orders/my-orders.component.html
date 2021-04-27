@@ -4,6 +4,15 @@
 
     <div class="orders">
         <app-card *ngFor="let order of orders">
+            <div class="at mb">
+                <small>Ordered at: 
+                    <span class="text-primary">{{ order.added | date }}</span>
+                </small>
+                <br>
+                <small>Status: 
+                    <span class="text-primary">{{ capitalizeFirstLetter(order.status) }}</span>
+                </small>
+            </div>
             <div class="item mb" *ngFor="let product of order.products; let i = index">
                 <div class="img-info row">
                     <div class="image-container">
@@ -11,7 +20,7 @@
                     </div>
                     <div class="info column">
                         <h4 class="text-primary no-margin">{{ product.name }}</h4>
-                        <div class="mt">{{ order.orders[i].quantity }}x - {{ getFormatedPrice(product.price * order.orders[i].quantity) }} Ft</div>
+                        <div>{{ order.orders[i].quantity }}x - {{ getFormatedPrice(product.price * order.orders[i].quantity) }} Ft</div>
                     </div>
                 </div>
             </div>
