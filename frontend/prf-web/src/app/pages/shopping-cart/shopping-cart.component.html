@@ -15,8 +15,8 @@
                         <img [src]="product.image || '../../../../../../assets/images/default_image.png'" alt="">
                     </div>
                     <div class="info column">
-                        <h4 class="text-primary no-margin">{{ product.name }}</h4>
-                        <div>{{ product.items }}x - {{ getFormatedPrice(product.price * product.items) }} Ft</div>
+                        <h4 class="text-primary no-margin">({{ product.items }}x) {{ product.name }}</h4>
+                        <div>{{ getFormatedPrice(product.price * product.items) }} Ft</div>
                     </div>
                 </div>
                 <div class="remove-button">

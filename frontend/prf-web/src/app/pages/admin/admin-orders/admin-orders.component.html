@@ -17,9 +17,7 @@
                             <span>{{ order.address.country }}</span>
                         </div>
                         <div>
-                            <span class="text-primary" [style.opacity]="order.status == 'pending' ? 1 : 0.25">{{ capitalizeFirstLetter(order.status) }}</span>
-                            -
-                            <span>{{ order._id }}</span>
+                            <span class="text-primary">{{ capitalizeFirstLetter(order.status) }}</span>
                         </div>
                     </div>
                 </div>
@@ -35,6 +33,38 @@
                                     <div>{{ order.orders[i].quantity }}x - {{ getFormatedPrice(product.price * order.orders[i].quantity) }} Ft</div>
                                 </div>
                             </div>
+                        </div>
+                    </div>
+                    <hr>
+                    <div class="texts">
+                        <h4>Address</h4>
+                        <div class="row">
+                            <span class="text-primary title">Name</span>
+                            <span class="value">{{ order.address.country }}</span>
+                        </div>
+                        <div class="row">
+                            <span class="text-primary title">City</span>
+                            <span class="value">{{ order.address.city }}</span>
+                        </div>
+                        <div class="row">
+                            <span class="text-primary title">Street</span>
+                            <span class="value">{{ order.address.street }}</span>
+                        </div>
+                        <div class="row">
+                            <span class="text-primary title">Postal code</span>
+                            <span class="value">{{ order.address.postal_code }}</span>
+                        </div>
+                    </div>
+                    <hr>
+                    <div class="texts">
+                        <h4>Info</h4>
+                        <div class="row">
+                            <span class="text-primary title">Ordered at</span>
+                            <span class="value">{{ order.added | date }}</span>
+                        </div>
+                        <div class="row">
+                            <span class="text-primary title">Total</span>
+                            <span class="value">{{ getFormatedPrice(getTotalPrice(order)) }} Ft,-</span>
                         </div>
                     </div>
                     <div buttons *ngIf="order.status == 'pending'">

@@ -42,7 +42,11 @@ export class AdminOrdersComponent implements OnInit {
   }
 
   getTotalPrice(order: any) {
-
+    let sum = 0;
+    for (let i=0; i<order.orders.length; i++) {
+      sum += order.orders[i].quantity * order.products[i].price;
+    }
+    return sum;
   }
 
   getFormatedPrice(price: any) {
