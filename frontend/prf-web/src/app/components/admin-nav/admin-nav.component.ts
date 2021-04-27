@@ -21,6 +21,7 @@ export class AdminNavComponent implements OnInit {
     return [
       { name: 'Users', path: '/admin/users', label: 'users' },
       { name: 'Catalog', path: '/admin/catalog', label: 'catalog' },
+      { name: 'Orders', path: '/admin/orders', label: 'orders' },
     ];
   }
 

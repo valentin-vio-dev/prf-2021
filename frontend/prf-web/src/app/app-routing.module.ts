@@ -4,6 +4,7 @@ import { AdminGuard } from './guards/admin/admin.guard';
 import { AuthGuard } from './guards/auth/auth.guard';
 import { LoginGuard } from './guards/login/login.guard';
 import { AdminCatalogComponent } from './pages/admin/admin-catalog/admin-catalog.component';
+import { AdminOrdersComponent } from './pages/admin/admin-orders/admin-orders.component';
 import { AdminUsersComponent } from './pages/admin/admin-users/admin-users.component';
 import { AdminComponent } from './pages/admin/admin.component';
 import { CatalogComponent } from './pages/catalog/catalog.component';
@@ -56,6 +57,11 @@ const routes: Routes = [
       {
         path: 'catalog',
         component: AdminCatalogComponent,
+        canActivate: [AdminGuard, AuthGuard]
+      },
+      {
+        path: 'orders',
+        component: AdminOrdersComponent,
         canActivate: [AdminGuard, AuthGuard]
       }
     ]
