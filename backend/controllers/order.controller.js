@@ -16,7 +16,7 @@ module.exports.getAll = function(req, res, next) {
 
 module.exports.getAllByCustomer = function(req, res, next) {
     if (req.query.id) {
-        Order.find({ _id: req.query.id }, (error, orders) => {
+        Order.find({ customerId: req.query.id }, (error, orders) => {
             if(error) return res.status(500).send(errorResponse(error));
             return res.status(200).send(successResponse('', { orders: orders }));
         });
@@ -38,7 +38,7 @@ module.exports.getById = function(req, res, next) {
 }
 
 module.exports.order = function(req, res, next) {
-    let fields = ['customerId', 'address', 'orders'];
+    let fields = ['customerId', 'address', 'orders', 'added'];
     if (reqContains(req, fields)) {
         if (req.body.orders.length < 1) {
             return res.status(400).send(errorResponse('No order item added!'));

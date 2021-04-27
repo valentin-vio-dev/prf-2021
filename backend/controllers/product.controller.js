@@ -95,6 +95,17 @@ module.exports.getFiltered = function(req, res, next) {
     }
 }
 
+module.exports.search = function(req, res, next) {
+    if (req.query.search) {
+        Product.find({ name: { '$regex' : req.query.search, '$options' : 'i'} }, (err, products) => {
+            if (err) return res.status(500).send(errorResponse(err));
+            return res.status(200).send(successResponse('', { products: products}));
+        });
+    } else {
+        return res.status(400).send(errorResponse('No search value provided!'));
+    }
+}
+
 module.exports.getById = function(req, res, next) {
     if (req.query.id) {
         Product.findOne({ _id: mongoose.Types.ObjectId(req.query.id) }, (err, product) => {

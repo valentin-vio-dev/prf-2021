@@ -92,7 +92,7 @@ export class ShoppingCartComponent implements OnInit {
 
     let orders: any[] = [];
     this.products.forEach((product: any) => {
-      orders.push({ productId: product._id, quantity: product.items});
+      orders.push({ productId: product._id, quantity: product.items });
     });
     
     this.orderService.order(this.form.value, orders).subscribe((res: any) => {

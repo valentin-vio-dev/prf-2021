@@ -8,6 +8,7 @@ import { ProductService } from 'src/app/services/product/product.service';
 })
 export class CatalogComponent implements OnInit {
   products: any[] = [];
+  searchText: string = '';
 
   constructor(private productService: ProductService) { }
 
@@ -15,6 +16,18 @@ export class CatalogComponent implements OnInit {
     this.productService.getAll().subscribe((res: any) => {
       this.products = res.data.products;
     });
+  }
+
+  search(event: any) {
+    if (this.searchText == '') {
+      this.productService.getAll().subscribe((res: any) => {
+        this.products = res.data.products;
+      });
+    } else {
+      this.productService.search(this.searchText).subscribe((res: any) => {
+        this.products = res.data.products;
+      });
+    }
   }
 
 }

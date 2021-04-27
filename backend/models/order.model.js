@@ -16,7 +16,8 @@ var orderSchema = new mongoose.Schema({
     customerId: { type: mongoose.Types.ObjectId, required: true },
     address: addresSchema,
     orders: [ orderItemSchema ],
-    status: { type: String }
+    status: { type: String },
+    added: { type: String }
 }, { collection: 'orders' });
 
 orderSchema.pre('save', function(next) {

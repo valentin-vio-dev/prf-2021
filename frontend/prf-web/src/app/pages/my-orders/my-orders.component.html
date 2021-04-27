@@ -1,4 +1,20 @@
 <app-top-nav></app-top-nav>
 <app-page>
     <h1 class="text-primary floating-title">My orders</h1>
+
+    <div class="orders">
+        <app-card *ngFor="let order of orders">
+            <div class="item mb" *ngFor="let product of order.products; let i = index">
+                <div class="img-info row">
+                    <div class="image-container">
+                        <img [src]="product.image || '../../../../../../assets/images/default_image.png'" alt="">
+                    </div>
+                    <div class="info column">
+                        <h4 class="text-primary no-margin">{{ product.name }}</h4>
+                        <div class="mt">{{ order.orders[i].quantity }}x - {{ getFormatedPrice(product.price * order.orders[i].quantity) }} Ft</div>
+                    </div>
+                </div>
+            </div>
+        </app-card>
+    </div>
 </app-page>
