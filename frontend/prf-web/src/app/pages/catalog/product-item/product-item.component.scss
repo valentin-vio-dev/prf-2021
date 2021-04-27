@@ -1,0 +1,36 @@
+@import '../../../../styles.scss';
+
+.image-holder {
+    width: 100%;
+    height: 200px;
+
+    img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        border-radius: $border-radius;
+    }
+}
+
+.texts {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    
+    .row {
+        margin-bottom: $margin-normal;
+        .title {
+            width: 50%;
+        }
+
+        .value {
+            width: 50%;
+        }
+    }
+}
+
+.price {
+    display: flex;
+    flex-direction: column;
+}

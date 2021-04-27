@@ -117,6 +117,12 @@ form {
     flex-direction: row;
 }
 
+.center {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
 .toast {
     width: 200px;
     background: $color-white;
