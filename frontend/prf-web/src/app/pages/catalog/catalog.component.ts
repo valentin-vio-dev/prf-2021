@@ -19,7 +19,7 @@ export class CatalogComponent implements OnInit {
   }
 
   search(event: any) {
-    if (this.searchText == '') {
+    if (this.searchText.trim() == '') {
       this.productService.getAll().subscribe((res: any) => {
         this.products = res.data.products;
       });
