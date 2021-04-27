@@ -18,6 +18,10 @@ export class OrderService {
   }
 
   getAllByCurrent() {
-    return this.http.get('http://localhost:3000/order/customer?id=' + localStorage.getItem('uid'))
+    return this.http.get('http://localhost:3000/order/customer?id=' + localStorage.getItem('uid'));
+  }
+
+  getAll() {
+    return this.http.get('http://localhost:3000/order')
   }
 }

@@ -2,4 +2,41 @@
 <app-admin-nav></app-admin-nav>
 <app-page>
     <h1 class="text-primary floating-title">Admin - Orders</h1>
+
+    <div class="orders">
+        <div class="header">
+            <h3>Orders</h3>
+        </div>
+        <app-card *ngFor="let order of orders">
+            <app-expansion-panel *ngIf="order.customer && order.products.length == order.orders.length">
+                <div header>
+                    <div class="order-header">
+                        <div class="customer" *ngIf="order.customer">
+                            <span class="text-primary">{{ order.customer.firstname + ' ' + order.customer.lastname }}</span>
+                             - 
+                            <span>{{ order.address.country }}</span>
+                        </div>
+                        <div>
+                            <span class="text-primary">{{ order._id }}</span>
+                        </div>
+                    </div>
+                </div>
+                <div content>
+                    <div class="prod-cont">
+                        <div class="item mb" *ngFor="let product of order.products; let i = index">
+                            <div class="img-info row">
+                                <div class="image-container">
+                                    <img [src]="product.image || '../../../../../../assets/images/default_image.png'" alt="">
+                                </div>
+                                <div class="info column">
+                                    <h4 class="text-primary no-margin">{{ product.name }}</h4>
+                                    <div>{{ order.orders[i].quantity }}x - {{ getFormatedPrice(product.price * order.orders[i].quantity) }} Ft</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </app-expansion-panel>
+        </app-card>
+    </div>
 </app-page>

@@ -9,7 +9,7 @@ export class ExpansionPanelComponent implements OnInit {
   @ViewChild('container') container: any;
   open: boolean = false;
   height: number | any = 0;
-  visibility: string = 'invisible';
+  visibility: string = 'hidden';
 
   constructor(private cdr: ChangeDetectorRef) { }
 
