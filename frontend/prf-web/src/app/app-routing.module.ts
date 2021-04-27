@@ -10,6 +10,7 @@ import { AdminComponent } from './pages/admin/admin.component';
 import { CatalogComponent } from './pages/catalog/catalog.component';
 import { HomeComponent } from './pages/home/home.component';
 import { LoginComponent } from './pages/login/login.component';
+import { MyOrdersComponent } from './pages/my-orders/my-orders.component';
 import { NotFoundComponent } from './pages/not-found/not-found.component';
 import { ShoppingCartComponent } from './pages/shopping-cart/shopping-cart.component';
 
@@ -32,6 +33,11 @@ const routes: Routes = [
   {
     path: 'catalog',
     component: CatalogComponent,
+    canActivate: [AuthGuard]
+  },
+  {
+    path: 'my-orders',
+    component: MyOrdersComponent,
     canActivate: [AuthGuard]
   },
   {

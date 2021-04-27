@@ -27,18 +27,18 @@
         
         <h3>Address</h3>
         <app-card>
-            <form>
-                <app-input label="County">
-                    <input type="text">
+            <form [formGroup]="form">
+                <app-input label="County" required="true">
+                    <input type="text" formControlName="country">
                 </app-input>
-                <app-input label="City">
-                    <input type="text">
+                <app-input label="City" required="true">
+                    <input type="text" formControlName="city">
                 </app-input>
-                <app-input label="Street">
-                    <input type="text">
+                <app-input label="Street" required="true">
+                    <input type="text" formControlName="street">
                 </app-input>
-                <app-input label="Postal code">
-                    <input type="text">
+                <app-input label="Postal code" required="true">
+                    <input type="text" formControlName="postal_code">
                 </app-input>
             </form>
         </app-card>

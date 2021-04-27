@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { GlobalService } from 'src/app/services/global/global.service';
+import { OrderService } from 'src/app/services/oder/order.service';
 import { ProductService } from 'src/app/services/product/product.service';
 import { ToastService } from 'src/app/services/toast/toast.service';
 
@@ -11,16 +13,24 @@ import { ToastService } from 'src/app/services/toast/toast.service';
 })
 export class ShoppingCartComponent implements OnInit {
   products: any[] = [];
+  form: FormGroup | any;
 
   constructor(
     public globalService: GlobalService,
     public productService: ProductService,
     private router: Router,
-    private toastService: ToastService
+    private toastService: ToastService,
+    private orderService: OrderService
   ) { }
 
   ngOnInit(): void {
     this.getProducts();
+    this.form = new FormGroup({
+      country: new FormControl('', Validators.required),
+      city: new FormControl('', Validators.required),
+      street: new FormControl('', Validators.required),
+      postal_code: new FormControl('', Validators.required)
+    });
   }
 
   getProducts() {
@@ -75,6 +85,22 @@ export class ShoppingCartComponent implements OnInit {
   }
 
   order() {
+    if (this.form.invalid) {
+      this.toastService.create('Please fill all required field!', 2000);
+      return;
+    }
+
+    let orders: any[] = [];
+    this.products.forEach((product: any) => {
+      orders.push({ productId: product._id, quantity: product.items});
+    });
     
+    this.orderService.order(this.form.value, orders).subscribe((res: any) => {
+      this.toastService.create('Your order has been submitted!', 2000);
+      localStorage.setItem('cart', JSON.stringify({ products: [] }));
+    }, (err: any) => {
+      console.log(err)
+      this.toastService.create('Someting went wrong :(', 2000);
+    });
   }
 }
