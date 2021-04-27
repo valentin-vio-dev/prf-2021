@@ -11,7 +11,7 @@
             </div>
             <div class="price mb">
                 <span class="text-primary title center">Price</span>
-                <span class="value center">{{ product.price || '-' }} <span *ngIf="product.price"> Ft,-</span></span>
+                <span class="value center">{{ getFormatedPrice(product.price) }} Ft,-</span>
             </div>
         </div>
         <div content>
@@ -38,7 +38,7 @@
                 </div>
                 <div class="row">
                     <span class="text-primary title">Price</span>
-                    <span class="value">{{ product.price || '-' }} <span *ngIf="product.price"> Ft,-</span></span>
+                    <span class="value">{{ getFormatedPrice(product.price) }} Ft,-</span>
                 </div>
                 <div class="row">
                     <span class="text-primary title">Avaibility</span>

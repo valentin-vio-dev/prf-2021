@@ -40,4 +40,21 @@ export class ProductItemComponent implements OnInit {
     });
   }
 
+  getFormatedPrice(price: any) {
+    let st: string = price.toString();
+    st = st.trim();
+    let p = [];
+   
+    let c = 1;
+    for (let i=st.length-1; i>=0; i--) {
+      p.push(st.charAt(i));
+      if (c % 3 == 0 && i != 0) {
+        p.push('.');
+      }
+      c += 1;
+    }
+    p = p.reverse()
+    return p.join('');
+  }
+
 }

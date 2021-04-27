@@ -25,7 +25,19 @@ export class GlobalService {
 
   addToCart(productId: string) {
     let cart = this.getCart();
-    cart.products.push({ time: Date.now(), productId: productId });
+    let found = false;
+    for (let i=0; i<cart.products.length; i++) {
+      if (productId == cart.products[i].productId) {
+        cart.products[i].items = cart.products[i].items + 1;
+        found = true;
+        break;
+      }
+    }
+    
+    if (!found) {
+      cart.products.push({ time: Date.now(), productId: productId, items: 1 });
+    }
+
     localStorage.setItem('cart', JSON.stringify(cart));
   }
 

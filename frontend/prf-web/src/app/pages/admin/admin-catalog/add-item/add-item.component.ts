@@ -28,7 +28,7 @@ export class AddItemComponent implements OnInit {
       interface: new FormControl(''),
       chipset: new FormControl('', Validators.required),
       memory_size: new FormControl(''),
-      price: new FormControl(''),
+      price: new FormControl('', Validators.required),
       avaible: new FormControl(false),
       image: new FormControl(''),
       description: new FormControl(''),

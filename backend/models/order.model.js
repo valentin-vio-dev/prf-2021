@@ -4,7 +4,6 @@ var addresSchema = new mongoose.Schema({
     country: { type: String, required: true },
     city: { type: String, required: true },
     street: { type: String, required: true },
-    house_number: { type: String, required: true },
     postal_code: { type: String, required: true }
 });
 
