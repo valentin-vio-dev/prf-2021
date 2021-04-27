@@ -38,6 +38,9 @@ export class AdminUserAddEditComponent implements OnInit {
         this.editing = true;
         this.form.get('password').setValue('NULL');
         this.form.get('passwordAgain').setValue('NULL');
+      } else {
+        this.accessLevel = this.panelService.data.accessLevel;
+        this.form.get('accessLevel').setValue(this.accessLevel);
       }
 
       if (this.panelService.data.user) {

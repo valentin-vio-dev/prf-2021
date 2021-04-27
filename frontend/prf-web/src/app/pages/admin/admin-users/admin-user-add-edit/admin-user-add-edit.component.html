@@ -18,7 +18,6 @@
     <app-input label="Password again" required="true" *ngIf="!editing">
         <input type="password" formControlName="passwordAgain" min="0">
     </app-input>
-
-    <button (click)="deleteUser()" class="clear mb" *ngIf="editing">Delete</button>
+    
     <button (click)="submit()" class="submit">{{ editing ? 'Edit' : 'Add' }}</button>
 </form>
