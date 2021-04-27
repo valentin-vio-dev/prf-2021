@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { AuthService } from 'src/app/services/auth/auth.service';
+import { GlobalService } from 'src/app/services/global/global.service';
 import { ToastService } from 'src/app/services/toast/toast.service';
 import { UserService } from 'src/app/services/user/user.service';
 
@@ -19,7 +20,8 @@ export class TopNavComponent implements OnInit {
     private router: Router,
     private toastService: ToastService,
     private userService: UserService,
-    public auth: AuthService
+    public auth: AuthService,
+    public globalService: GlobalService
     ) { }
 
   ngOnInit(): void {
@@ -37,6 +39,10 @@ export class TopNavComponent implements OnInit {
           return nav.label != 'admin';
         });
       }
+    });
+
+    this.globalService.shoppingCartChangeEmitter.subscribe(() => {
+      console.log(2131)
     });
   }
 

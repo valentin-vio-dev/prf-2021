@@ -63,6 +63,11 @@ export class AdminUserAddEditComponent implements OnInit {
       return;
     }
 
+    if (this.form.get('accessLevel').value != 'admin' && this.form.get('accessLevel').value != 'user') {
+      this.toastService.create('Access level must be "admin" or "user"!', 2000);
+      return;
+    }
+
     if (this.editing) {
       this.userService.editUser(this.userId, this.form.value).subscribe((res: any) => {
         this.toastService.create(res.message, 2000);

@@ -5,8 +5,8 @@
     <div class="navs">
         <ul *ngIf="auth.getCurrentUserId(); else noUser">
             <li *ngFor="let nav of navs">
-                <div class="cart-items" *ngIf="nav.label == 'shopping-cart'">
-                    2
+                <div class="cart-items" *ngIf="nav.label == 'shopping-cart' && globalService.getCart().products.length > 0">
+                    {{ globalService.getCart().products.length < 10 ? globalService.getCart().products.length : '+9' }}
                 </div>
                 <a
                 *ngIf="nav.label" 
