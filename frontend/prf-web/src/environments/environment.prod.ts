@@ -1,3 +1,4 @@
 export const environment = {
-  production: true
+  production: true,
+  backendUrl: 'https://prf-2021-backend.herokuapp.com/'
 };
