@@ -27,6 +27,7 @@ require('./models/user.model');
 require('./models/product.model');
 require('./models/order.model');
 
+app.use(cors({ origin: 'https://prf-2021-frontend.herokuapp.com' }));
 app.use(cookieParser({ secret: process.env.APP_SECRET}));
 app.use(express.urlencoded({ extended: true, limit: '50mb'}));
 app.use(express.json({ limit: '50mb' }));
@@ -47,7 +48,7 @@ app.use((req, res, next) => {
         res.set('Access-Control-Max-Age', '3600');
     }
     next();
-})
+});
 
 app.use('/auth', require('./routes/auth.route'));
 app.use('/product', require('./routes/product.route'));
