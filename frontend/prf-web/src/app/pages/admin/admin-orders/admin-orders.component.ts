@@ -11,7 +11,6 @@ import { UserService } from 'src/app/services/user/user.service';
 })
 export class AdminOrdersComponent implements OnInit {
   orders: any[] = [];
-  loading: boolean = false;
 
   constructor(
     private toastService: ToastService,
@@ -21,9 +20,13 @@ export class AdminOrdersComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
-    this.loading = true;
+    this.getOrders();
+  }
+
+  getOrders() {
     this.orderService.getAll().subscribe((res: any) => {
       this.orders = res.data.orders;
+
       this.orders.forEach(order => {
         order.orders.forEach((prod: any) => {
           order.products = [];
@@ -61,6 +64,15 @@ export class AdminOrdersComponent implements OnInit {
 
   capitalizeFirstLetter(str: string) {
     return str.charAt(0).toUpperCase() + str.slice(1);
+  }
+
+  complete(order: any) {
+    this.orderService.updateStatus(order._id, 'package shipped').subscribe((res: any) => {
+      this.toastService.create('Package shipped!', 2000);
+      this.getOrders();
+    }, (err: any) => {
+      this.toastService.create('Something went wrong :(', 2000);
+    });
   }
 
 }

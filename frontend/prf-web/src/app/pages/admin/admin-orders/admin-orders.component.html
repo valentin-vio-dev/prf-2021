@@ -17,7 +17,9 @@
                             <span>{{ order.address.country }}</span>
                         </div>
                         <div>
-                            <span class="text-primary">{{ order._id }}</span>
+                            <span class="text-primary" [style.opacity]="order.status == 'pending' ? 1 : 0.25">{{ capitalizeFirstLetter(order.status) }}</span>
+                            -
+                            <span>{{ order._id }}</span>
                         </div>
                     </div>
                 </div>
@@ -34,6 +36,9 @@
                                 </div>
                             </div>
                         </div>
+                    </div>
+                    <div buttons *ngIf="order.status == 'pending'">
+                        <button (click)="complete(order)">Complete order</button>
                     </div>
                 </div>
             </app-expansion-panel>

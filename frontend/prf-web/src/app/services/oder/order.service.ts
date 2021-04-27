@@ -24,4 +24,8 @@ export class OrderService {
   getAll() {
     return this.http.get('http://localhost:3000/order')
   }
+
+  updateStatus(id: string, status: string) {
+    return this.http.put('http://localhost:3000/order/status', { id: id, status: status });
+  }
 }

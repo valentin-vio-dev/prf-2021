@@ -56,8 +56,8 @@ module.exports.order = function(req, res, next) {
 }
 
 module.exports.updateStatus = function(req, res, next) {
-    if (req.body._id && req.body.status) {
-        Order.findOneAndUpdate({ _id: req.body._id }, { status: req.body.status }, null, (error, order) => {
+    if (req.body.id && req.body.status) {
+        Order.findOneAndUpdate({ _id: req.body.id }, { status: req.body.status }, null, (error, order) => {
             if (error) return res.status(500).send(errorResponse(error));
             if(!order) return res.status(404).send(errorResponse('No order found!'));
             return res.status(200).send(successResponse('Order status updated', { status: req.body.status }));
