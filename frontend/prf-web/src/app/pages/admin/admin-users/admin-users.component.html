@@ -7,7 +7,7 @@
         <div class="header">
             <h3>Admins</h3>
             <div class="buttons">
-                <button (click)="addUser()">Add new admin</button>
+                <button (click)="addAdmin()">Add new admin</button>
             </div>
         </div>
         <app-card *ngFor="let user of getAdmins()">
@@ -18,12 +18,10 @@
                         <span class="text-gray">({{ user.email }})</span>
                     </div>
                 </div>
-                <div buttons class="row">
-                    <button class="ml">Edit</button>
+                <div buttons class="row" *ngIf="user._id != auth.getCurrentUserId()">
+                    <button class="ml" (click)="editUser(user)">Edit</button>
                 </div>
-                <div content>
-                    <h3>Orders</h3>
-                </div>
+                
             </app-expansion-panel>
         </app-card>
     </div>
@@ -44,7 +42,7 @@
                     </div>
                 </div>
                 <div buttons class="row">
-                    <button class="ml">Edit</button>
+                    <button class="ml" (click)="editUser(user)">Edit</button>
                 </div>
                 <div content>
                     <h3>Orders</h3>

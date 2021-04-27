@@ -24,4 +24,13 @@ export class UserService {
   addUser(user: any) {
     return this.http.post('http://localhost:3000/user', user);
   }
+
+  editUser(id: string, user: any) {
+    let body = user;
+    body._id = id;
+    delete body.password;
+    delete body.passwordAgain;
+    
+    return this.http.put('http://localhost:3000/user', body);
+  }
 }

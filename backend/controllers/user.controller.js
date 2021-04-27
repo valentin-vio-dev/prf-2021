@@ -6,6 +6,7 @@ const successResponse = require('../utils/success.handler');
 const mongoose = require('mongoose');
 const User = mongoose.model('user');
 
+const createModelObj = require('../utils/create-model-obj');
 const reqContains = require('../utils/req-contains');
 
 module.exports.addUser = function(req, res, next) {
@@ -65,5 +66,32 @@ module.exports.updateAccessLevel = function(req, res, next) {
         });
     } else {
         return res.status(400).send(errorResponse('Some fields are missing!'));
+    }
+}
+
+module.exports.updateUser = function(req, res, next) {
+    if (req.body._id) {
+        let props = [];
+        Object.keys(req.body).forEach(key => {
+            props.push(key);
+        });
+
+        if (props.length > 1) {
+            let obj = createModelObj(req, props);
+            delete obj._id;
+            User.findOne({ _id: mongoose.Types.ObjectId(req.body._id) }, (err, user) => {
+                if (err) return res.status(500).send(errorResponse(err));
+                if (!user) return res.status(404).send(errorResponse('User not found!'));
+    
+                User.updateOne({ _id: mongoose.Types.ObjectId(req.body._id) }, obj, null, (erro, ress) => {
+                    if (err) return res.status(500).send(errorResponse(erro));
+                    return res.status(200).send(successResponse('User updated!', {}));
+                });
+            });
+        } else {
+            return res.status(400).send(errorResponse('No update data provided!'));
+        }
+    } else {
+        return res.status(400).send(errorResponse('ID is missing!'));
     }
 }

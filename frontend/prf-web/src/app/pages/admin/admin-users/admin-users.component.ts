@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Subscription } from 'rxjs';
+import { AuthService } from 'src/app/services/auth/auth.service';
 import { PanelService } from 'src/app/services/panel/panel.service';
 import { UserService } from 'src/app/services/user/user.service';
 import { AdminUserAddEditComponent } from './admin-user-add-edit/admin-user-add-edit.component';
@@ -15,7 +16,8 @@ export class AdminUsersComponent implements OnInit {
 
   constructor(
     private userService: UserService,
-    private panelService: PanelService
+    private panelService: PanelService,
+    public auth: AuthService
   ) { }
 
   ngOnInit(): void {
@@ -40,8 +42,8 @@ export class AdminUsersComponent implements OnInit {
     });
   }
 
-  addUser() {
-    this.panelService.create(AdminUserAddEditComponent);
+  addAdmin() {
+    this.panelService.create(AdminUserAddEditComponent, { accessLevel: 'admin', editing: false });
     this.closedSub = this.panelService.afterClosed().subscribe((res: any) => {
       this.closedSub.unsubscribe();
       if (res == 'ADDED') {
@@ -49,5 +51,25 @@ export class AdminUsersComponent implements OnInit {
       }
     });
   }
+
+  addUser() {
+    this.panelService.create(AdminUserAddEditComponent, { accessLevel: 'user', editing: false });
+    this.closedSub = this.panelService.afterClosed().subscribe((res: any) => {
+      this.closedSub.unsubscribe();
+      if (res == 'ADDED') {
+        this.getUsers();
+      }
+    });
+  }
+
+  editUser(user: any) {
+    this.panelService.create(AdminUserAddEditComponent, { user: user, editing: true });
+    this.closedSub = this.panelService.afterClosed().subscribe((res: any) => {
+      this.closedSub.unsubscribe();
+      if (res == 'EDITED' || res == 'DELETED') {
+        this.getUsers();
+      }
+    });
+  } 
 
 }

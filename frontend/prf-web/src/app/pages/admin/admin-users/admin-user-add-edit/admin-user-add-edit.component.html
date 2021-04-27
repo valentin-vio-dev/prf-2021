@@ -1,1 +1,24 @@
-<p>admin-user-add-edit works!</p>
+<form [formGroup]="form">
+    <h1 class="text-primary">{{ editing ? 'Edit ' : 'Add new ' }} user</h1>
+    <app-input label="Firstame" required="true">
+        <input type="text" formControlName="firstname">
+    </app-input>
+    <app-input label="Lastname" required="true">
+        <input type="text" formControlName="lastname">
+    </app-input>
+    <app-input label="E-mail" required="true">
+        <input type="email" formControlName="email">
+    </app-input>
+    <app-input label="Access level" required="true">
+        <input type="text" formControlName="accessLevel" #access>
+    </app-input>
+    <app-input label="Password" required="true" *ngIf="!editing">
+        <input type="password" formControlName="password" min="0">
+    </app-input>
+    <app-input label="Password again" required="true" *ngIf="!editing">
+        <input type="password" formControlName="passwordAgain" min="0">
+    </app-input>
+
+    <button (click)="deleteUser()" class="clear mb" *ngIf="editing">Delete</button>
+    <button (click)="submit()" class="submit">{{ editing ? 'Edit' : 'Add' }}</button>
+</form>
