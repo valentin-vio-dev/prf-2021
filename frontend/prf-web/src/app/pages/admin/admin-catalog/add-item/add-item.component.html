@@ -31,8 +31,14 @@
         <textarea cols="45" rows="6" formControlName="description"></textarea>
     </app-input>
 
-    <button (click)="deleteProduct()" class="clear mb" *ngIf="editing">Delete</button>
-    <button (click)="submit()" class="submit">{{ editing ? 'Edit' : 'Add' }}</button>
+    <button (click)="deleteProduct()" class="clear mb" *ngIf="editing">
+        <i class="material-icons">delete</i>
+        Delete
+    </button>
+    <button (click)="submit()" class="submit">
+        <i class="material-icons">{{ editing ? 'create' : 'add' }}</i>
+        {{ editing ? 'Edit' : 'Add' }}
+    </button>
 </form>
 
 <div class="fill-loading" *ngIf="loading">

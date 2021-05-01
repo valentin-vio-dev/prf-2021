@@ -19,7 +19,10 @@
         <input type="password" formControlName="passwordAgain" min="0">
     </app-input>
     
-    <button (click)="submit()" class="submit">{{ editing ? 'Edit' : 'Add' }}</button>
+    <button (click)="submit()" class="submit">
+        <i class="material-icons">{{ editing ? 'create' : 'add' }}</i>
+        {{ editing ? 'Edit' : 'Add' }}
+    </button>
 </form>
 
 <div class="fill-loading" *ngIf="loading">

@@ -21,7 +21,10 @@
                         </div>
                     </div>
                     <div class="remove-button">
-                        <button (click)="remove(product)">Remove item{{ product.items > 1 ? 's' : ''}}</button>
+                        <button (click)="remove(product)">
+                            <i class="material-icons">delete</i>
+                            Remove item{{ product.items > 1 ? 's' : ''}}
+                        </button>
                     </div>
                 </div>
             </app-card>
@@ -45,7 +48,10 @@
             </app-card>
             <div class="total">
                 <h1>Total - {{ getTotalPrice() }} Ft,-</h1>
-                <button (click)="order()">Order</button>
+                <button (click)="order()">
+                    <i class="material-icons">done</i>
+                    Order
+                </button>
             </div>
         </div>
     </ng-template>

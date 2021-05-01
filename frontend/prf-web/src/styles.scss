@@ -1,3 +1,4 @@
+@import '~material-design-icons/iconfont/material-icons.css';
 
 @font-face {
     font-family: 'Lato';
@@ -83,6 +84,14 @@ button {
     box-shadow: $shadow-normal;
     background-position: center;
     transition: background 0.8s;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    i {
+        color: $color-white;
+        margin-right: $margin-small;
+    }
 
     &:hover {
         background: $color-primary-active radial-gradient(circle, transparent 1%, $color-primary-active 1%) center / 15000%;
@@ -97,7 +106,7 @@ button {
 
     &.clear {
         background-color: $color-primary-light;
-        color: $color-primary;
+        color: $color-white;
         box-shadow: none;
 
         &:hover {
@@ -107,8 +116,6 @@ button {
 
     &.not-available {
         background-color: $color-gray;
-
-        
 
         &:hover {
             background: $color-gray radial-gradient(circle, transparent 1%, $color-gray 1%) center / 15000%;

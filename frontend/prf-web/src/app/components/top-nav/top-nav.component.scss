@@ -31,6 +31,7 @@ nav {
         ul {
             display: flex;
             flex-direction: row;
+            margin: 0px;
             li {
                 list-style-type: none;
                 position: relative;
@@ -41,6 +42,14 @@ nav {
                     transition: $transition;
                     padding: $padding-normal;
                     cursor: pointer;
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+
+                    i {
+                        color: $color-white;
+                        margin-right: $margin-small;
+                    }
 
                     &:hover {
                         opacity: 1;
@@ -54,7 +63,7 @@ nav {
 
             .cart-items {
                 position: absolute;
-                top: 0;
+                top: 20px;
                 right: 0;
                 background-color: $color-danger;
                 color: $color-white;

@@ -11,14 +11,19 @@
                 <a
                 *ngIf="nav.label" 
                 [routerLink]="[nav.path]"
-                [class]="(nav.label === activeLink && !getPath().includes('admin')) || (nav.label === 'admin' && getPath().includes('admin')) ? 'active' : ''"
-                >{{ nav.name }}</a>
+                [class]="(nav.label === activeLink && !getPath().includes('admin')) || (nav.label === 'admin' && getPath().includes('admin')) ? 'active' : ''">
+                <i class="material-icons">{{ nav.icon }}</i>
+                {{ nav.name }}
+            </a>
             </li>
         </ul>
         <ng-template #noUser>
             <ul>
                 <li>
-                    <a [routerLink]="['/login']">Login</a>
+                    <a [routerLink]="['/login']">
+                        <i class="material-icons">chevron_right</i>
+                        Login
+                    </a>
                 </li>
             </ul>
         </ng-template>
@@ -27,7 +32,10 @@
             <p *ngIf="user">Hello, {{ user.firstname }}</p>
             <ul>
                 <li>
-                    <a (click)="logout()">Logout</a>
+                    <a (click)="logout()">
+                        <i class="material-icons">chevron_right</i>
+                        Logout
+                    </a>
                 </li>
             </ul>
         </div>

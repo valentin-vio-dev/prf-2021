@@ -69,7 +69,10 @@
                         </div>
                     </div>
                     <div buttons *ngIf="order.status == 'pending'">
-                        <button (click)="complete(order)">Complete order</button>
+                        <button (click)="complete(order)">
+                            <i class="material-icons">done</i>
+                            Complete order
+                        </button>
                     </div>
                 </div>
             </app-expansion-panel>

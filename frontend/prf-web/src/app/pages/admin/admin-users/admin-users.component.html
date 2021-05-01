@@ -7,7 +7,10 @@
         <div class="header">
             <h3>Admins</h3>
             <div class="buttons">
-                <button (click)="addAdmin()">Add new admin</button>
+                <button (click)="addAdmin()">
+                    <i class="material-icons">add</i>
+                    Add new admin
+                </button>
             </div>
         </div>
         <app-card *ngFor="let user of getAdmins()">
@@ -19,7 +22,10 @@
                     </div>
                 </div>
                 <div buttons class="row" *ngIf="user._id != auth.getCurrentUserId()">
-                    <button class="ml" (click)="editUser(user)">Edit</button>
+                    <button class="ml" (click)="editUser(user)">
+                        <i class="material-icons">create</i>
+                        Edit
+                    </button>
                 </div>
                 
             </app-expansion-panel>
@@ -30,7 +36,10 @@
         <div class="header">
             <h3>Customers</h3>
             <div class="buttons">
-                <button (click)="addUser()">Add new customer</button>
+                <button (click)="addUser()">
+                    <i class="material-icons">add</i>
+                    Add new customer
+                </button>
             </div>
         </div>
         <app-card *ngFor="let user of getCustomers()">
@@ -42,7 +51,10 @@
                     </div>
                 </div>
                 <div buttons class="row">
-                    <button class="ml" (click)="editUser(user)">Edit</button>
+                    <button class="ml" (click)="editUser(user)">
+                        <i class="material-icons">create</i>
+                        Edit
+                    </button>
                 </div>
             </app-expansion-panel>
         </app-card>

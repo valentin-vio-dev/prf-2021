@@ -39,8 +39,16 @@
             </div>
         </div>
     </app-expansion-panel>
-    <button class="mt" (click)="addToCart()" *ngIf="type == 'catalog' && product.available">Add to shopping cart</button>
-    <button class="mt not-available" *ngIf="type == 'catalog' && !product.available">Not available</button>
-    <button class="mt" (click)="addToCart()" *ngIf="type == 'cart'">Remove from shopping cart</button>
-    <button class="mt" (click)="editProduct()" *ngIf="type == 'admin'">Edit</button>
+    <button class="mt" (click)="addToCart()" *ngIf="type == 'catalog' && product.available">
+        <i class="material-icons">shopping_cart</i>
+        Add to shopping cart
+    </button>
+    <button class="mt not-available" *ngIf="type == 'catalog' && !product.available">
+        <i class="material-icons">report_problem</i>
+        Not available
+    </button>
+    <button class="mt" (click)="editProduct()" *ngIf="type == 'admin'">
+        <i class="material-icons">create</i>
+        Edit
+    </button>
 </app-card>
