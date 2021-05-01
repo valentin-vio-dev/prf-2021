@@ -9,12 +9,15 @@ import { ProductService } from 'src/app/services/product/product.service';
 export class CatalogComponent implements OnInit {
   products: any[] = [];
   searchText: string = '';
+  loading = false;
 
   constructor(private productService: ProductService) { }
 
   ngOnInit(): void {
+    this.loading = true;
     this.productService.getAll().subscribe((res: any) => {
       this.products = res.data.products;
+      this.loading = false;
     });
   }
 

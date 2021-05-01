@@ -15,6 +15,7 @@ export class AdminUserAddEditComponent implements OnInit {
   editing: boolean = false;
   userId: any;
   @ViewChild('access') accessLevel: any;
+  loading = false;
 
   constructor(
     private toastService: ToastService,
@@ -71,19 +72,25 @@ export class AdminUserAddEditComponent implements OnInit {
       return;
     }
 
+    this.loading = true;
+
     if (this.editing) {
       this.userService.editUser(this.userId, this.form.value).subscribe((res: any) => {
         this.toastService.create(res.message, 2000);
         this.panelService.closeCurrentPanel('EDITED');
+        this.loading = false;
       }, (err: any) => {
         this.toastService.create(err.error.message, 2000);
+        this.loading = false;
       });
     } else {
       this.userService.addUser(this.form.value).subscribe((res: any) => {
         this.toastService.create(res.message, 2000);
         this.panelService.closeCurrentPanel('ADDED');
+        this.loading = false;
       }, (err: any) => {
         this.toastService.create(err.error.message, 2000);
+        this.loading = false;
       });
     }
   }

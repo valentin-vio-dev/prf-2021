@@ -1,8 +1,8 @@
 <app-top-nav></app-top-nav>
-<app-page>
+<app-page [loading]="loading">
     <h1 class="text-primary floating-title">My orders</h1>
 
-    <div class="orders">
+    <div class="orders" *ngIf="!loading">
         <app-card *ngFor="let order of orders">
             <div class="at mb">
                 <small>Ordered at: 

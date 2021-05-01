@@ -40,3 +40,7 @@
     <button (click)="deleteProduct()" class="clear mb" *ngIf="editing">Delete</button>
     <button (click)="submit()" class="submit">{{ editing ? 'Edit' : 'Add' }}</button>
 </form>
+
+<div class="fill-loading" *ngIf="loading">
+    <app-loading></app-loading>
+</div>

@@ -11,6 +11,7 @@ import { UserService } from 'src/app/services/user/user.service';
 })
 export class AdminOrdersComponent implements OnInit {
   orders: any[] = [];
+  loading = false;
 
   constructor(
     private toastService: ToastService,
@@ -24,20 +25,29 @@ export class AdminOrdersComponent implements OnInit {
   }
 
   getOrders() {
+    this.loading = true;
     this.orderService.getAll().subscribe((res: any) => {
       this.orders = res.data.orders;
-
+      let i = 0;
       this.orders.forEach(order => {
         order.orders.forEach((prod: any) => {
           order.products = [];
           this.productService.getById(prod.productId).subscribe((resP: any) => {
             order.products.push(resP.data.product);
+            i++;
+            if (i == this.orders.length) {
+              this.loading = false;
+            }
           });
         });
         this.userService.getUserById(order.customerId).subscribe((re: any) => {
           order.customer = re.data.user;
         });
       });
+
+      if (this.orders.length < 1) {
+        this.loading = false;
+      }
     });
   }
 

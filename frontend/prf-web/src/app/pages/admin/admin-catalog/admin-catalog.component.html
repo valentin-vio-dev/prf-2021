@@ -1,9 +1,9 @@
 <app-top-nav></app-top-nav>
 <app-admin-nav></app-admin-nav>
-<app-page>
+<app-page [loading]="loading">
     <h1 class="text-primary floating-title">Admin - Catalog</h1>
 
-    <div class="catalog">
+    <div class="catalog" *ngIf="!loading">
         <div class="header">
             <h3>Catalog</h3>
             <div class="buttons">

@@ -4,7 +4,7 @@
 
 export const environment = {
   production: false,
-  backendUrl: 'https://prf-2021-backend.herokuapp.com'
+  backendUrl: 'http://localhost:3000'
 };
 
 /*

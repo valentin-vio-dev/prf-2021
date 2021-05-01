@@ -1,5 +1,5 @@
 <app-top-nav></app-top-nav>
-<app-page>
+<app-page [loading]="loading">
     <h1 class="text-primary floating-title">Shopping cart</h1>
     
 
@@ -8,43 +8,45 @@
         <button (click)="goToCatalog()">Go to Catalog</button>
     </div>
     <ng-template #haveProds>
-        <app-card *ngFor="let product of products">
-            <div class="item">
-                <div class="img-info row">
-                    <div class="image-container">
-                        <img [src]="product.image || '../../../../../../assets/images/default_image.png'" alt="">
+        <div *ngIf="!loading">
+            <app-card *ngFor="let product of products">
+                <div class="item">
+                    <div class="img-info row">
+                        <div class="image-container">
+                            <img [src]="product.image || '../../../../../../assets/images/default_image.png'" alt="">
+                        </div>
+                        <div class="info column">
+                            <h4 class="text-primary no-margin">({{ product.items }}x) {{ product.name }}</h4>
+                            <div>{{ getFormatedPrice(product.price * product.items) }} Ft</div>
+                        </div>
                     </div>
-                    <div class="info column">
-                        <h4 class="text-primary no-margin">({{ product.items }}x) {{ product.name }}</h4>
-                        <div>{{ getFormatedPrice(product.price * product.items) }} Ft</div>
+                    <div class="remove-button">
+                        <button (click)="remove(product)">Remove item</button>
                     </div>
                 </div>
-                <div class="remove-button">
-                    <button (click)="remove(product)">Remove item</button>
-                </div>
+            </app-card>
+            
+            <h3>Address</h3>
+            <app-card>
+                <form [formGroup]="form">
+                    <app-input label="County" required="true">
+                        <input type="text" formControlName="country">
+                    </app-input>
+                    <app-input label="City" required="true">
+                        <input type="text" formControlName="city">
+                    </app-input>
+                    <app-input label="Street" required="true">
+                        <input type="text" formControlName="street">
+                    </app-input>
+                    <app-input label="Postal code" required="true">
+                        <input type="text" formControlName="postal_code">
+                    </app-input>
+                </form>
+            </app-card>
+            <div class="total">
+                <h1>Total - {{ getTotalPrice() }} Ft,-</h1>
+                <button (click)="order()">Order</button>
             </div>
-        </app-card>
-        
-        <h3>Address</h3>
-        <app-card>
-            <form [formGroup]="form">
-                <app-input label="County" required="true">
-                    <input type="text" formControlName="country">
-                </app-input>
-                <app-input label="City" required="true">
-                    <input type="text" formControlName="city">
-                </app-input>
-                <app-input label="Street" required="true">
-                    <input type="text" formControlName="street">
-                </app-input>
-                <app-input label="Postal code" required="true">
-                    <input type="text" formControlName="postal_code">
-                </app-input>
-            </form>
-        </app-card>
-        <div class="total">
-            <h1>Total - {{ getTotalPrice() }} Ft,-</h1>
-            <button (click)="order()">Order</button>
         </div>
     </ng-template>
 </app-page>

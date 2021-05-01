@@ -13,6 +13,7 @@ import { AdminUserAddEditComponent } from './admin-user-add-edit/admin-user-add-
 export class AdminUsersComponent implements OnInit {
   users: any[] = [];
   closedSub: Subscription | any;
+  loading = false;
 
   constructor(
     private userService: UserService,
@@ -25,8 +26,10 @@ export class AdminUsersComponent implements OnInit {
   }
 
   getUsers() {
+    this.loading = true;
     this.userService.getAllUser().subscribe((res: any) => {
-      this.users = res.data.users
+      this.users = res.data.users;
+      this.loading = false;
     });
   }
 

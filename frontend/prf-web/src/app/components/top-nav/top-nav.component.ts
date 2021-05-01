@@ -44,7 +44,6 @@ export class TopNavComponent implements OnInit {
 
   getNavs() {
     return [
-      { name: 'Home', path: '/home', label: 'home' },
       { name: 'Catalog', path: '/catalog', label: 'catalog' },
       { name: 'My orders', path: '/my-orders', label: 'my-orders' },
       { name: 'Shopping cart', path: '/shopping-cart', label: 'shopping-cart' },

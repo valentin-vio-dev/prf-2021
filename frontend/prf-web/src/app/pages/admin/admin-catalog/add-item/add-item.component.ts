@@ -14,6 +14,7 @@ export class AddItemComponent implements OnInit {
   selectedImage: string | any;
   editing: boolean = false;
   productId: any;
+  loading = false;
 
   constructor(
     private toastService: ToastService,
@@ -49,19 +50,25 @@ export class AddItemComponent implements OnInit {
     }
     this.form.get('image').setValue(this.selectedImage || '');
 
+    this.loading = true;
+
     if (this.editing) {
       this.productService.editProduct(this.productId, this.form.value).subscribe((res: any) => {
         this.toastService.create(res.message, 2000);
+        this.loading = false;
         this.panelService.closeCurrentPanel('EDITED');
       }, (err: any) => {
+        this.loading = false;
         this.toastService.create(err.error.message, 2000);
       });
     } else {
       this.productService.addProduct(this.form.value).subscribe((res: any) => {
         this.toastService.create(res.message, 2000);
+        this.loading = false;
         this.panelService.closeCurrentPanel('ADDED');
       }, (err: any) => {
         this.toastService.create(err.error.message, 2000);
+        this.loading = false;
       });
     }
   }
@@ -86,11 +93,14 @@ export class AddItemComponent implements OnInit {
   }
 
   deleteProduct() {
+    this.loading = true;
     this.productService.delete(this.productId).subscribe((res: any) => {
       this.toastService.create(res.message, 2000);
+      this.loading = false;
       this.panelService.closeCurrentPanel('DELETED');
     }, (err: any) => {
       this.toastService.create(err.error.message, 2000);
+      this.loading = false;
     });
   }
 

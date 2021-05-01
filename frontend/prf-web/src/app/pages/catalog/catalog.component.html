@@ -1,5 +1,5 @@
 <app-top-nav></app-top-nav>
-<app-page>
+<app-page [loading]="loading">
     <h1 class="text-primary floating-title">Catalog</h1>
     <app-card>
         <h4>Search</h4>
@@ -11,6 +11,8 @@
         <app-product-item *ngFor="let product of products" [product]="product" type="catalog"></app-product-item>
     </div>
     <ng-template #noProds>
-        <h3>No product found :(</h3>
+        <div class="wqe" *ngIf="!loading">
+            <h3>No product found :(</h3>
+        </div>
     </ng-template>
 </app-page>

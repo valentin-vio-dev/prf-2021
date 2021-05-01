@@ -14,6 +14,7 @@ import { validEmail } from 'src/app/shared/functions/email.validate';
 export class LoginComponent implements OnInit {
   loginForm: FormGroup | any;
   regForm: FormGroup | any;
+  loading = false;
 
   constructor(private toastService: ToastService, private auth: AuthService, private router: Router) { }
 
@@ -43,19 +44,24 @@ export class LoginComponent implements OnInit {
       return;
     }
 
+    this.loading = true;
+
     this.auth.login(this.loginForm.get('email').value, this.loginForm.get('password').value).subscribe((res: any) => {
       localStorage.setItem('uid', res.data.user._id);
       this.toastService.create(res.message, 2000);
       this.loginForm.reset();
-      this.router.navigate(['home']);
+      this.loading = false;
+      this.router.navigate(['catalog']);
     }, (err: any) => {
       this.toastService.create(err.error.message, 2000);
+      this.loading = false;
     });
   }
 
   registrate() {
     if (this.regForm.invalid) {
       this.toastService.create('Please fill all required fields!', 2000);
+
       return;
     }
 
@@ -64,11 +70,15 @@ export class LoginComponent implements OnInit {
       return;
     }
 
+    this.loading = true;
+
     this.auth.registrate(this.regForm.value).subscribe((res: any) => {
       this.toastService.create(res.message, 2000);
+      this.loading = false;
       this.regForm.reset();
     }, (err: any) => {
       this.toastService.create(err.error.message, 2000);
+      this.loading = false;
     });
   }
 

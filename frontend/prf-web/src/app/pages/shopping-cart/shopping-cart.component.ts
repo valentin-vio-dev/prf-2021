@@ -14,6 +14,7 @@ import { ToastService } from 'src/app/services/toast/toast.service';
 export class ShoppingCartComponent implements OnInit {
   products: any[] = [];
   form: FormGroup | any;
+  loading = false;
 
   constructor(
     public globalService: GlobalService,
@@ -34,6 +35,8 @@ export class ShoppingCartComponent implements OnInit {
   }
 
   getProducts() {
+    this.loading = true;
+    let i = 0;
     this.products = [];
     let products = this.globalService.getCart().products;
     products.forEach((product: any) => {
@@ -41,8 +44,16 @@ export class ShoppingCartComponent implements OnInit {
         let nProd = res.data.product;
         nProd.items = product.items;
         this.products.push(nProd)
+        i++;
+        if (i == products.length) {
+          this.loading = false;
+        }
       });
     });
+
+    if (products.length < 1) {
+      this.loading = false;
+    }
   }
 
   goToCatalog() {
@@ -90,6 +101,8 @@ export class ShoppingCartComponent implements OnInit {
       return;
     }
 
+    this.loading = true;
+
     let orders: any[] = [];
     this.products.forEach((product: any) => {
       orders.push({ productId: product._id, quantity: product.items });
@@ -97,9 +110,10 @@ export class ShoppingCartComponent implements OnInit {
     
     this.orderService.order(this.form.value, orders).subscribe((res: any) => {
       this.toastService.create('Your order has been submitted!', 2000);
+      this.loading = false;
       localStorage.setItem('cart', JSON.stringify({ products: [] }));
     }, (err: any) => {
-      console.log(err)
+      this.loading = false;
       this.toastService.create('Someting went wrong :(', 2000);
     });
   }

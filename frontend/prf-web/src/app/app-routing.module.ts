@@ -17,18 +17,13 @@ import { ShoppingCartComponent } from './pages/shopping-cart/shopping-cart.compo
 const routes: Routes = [
   {
     path: '',
-    redirectTo: 'home', 
+    redirectTo: 'catalog', 
     pathMatch: 'full'
   },
   {
     path: 'login',
     component: LoginComponent,
     canActivate: [LoginGuard]
-  },
-  {
-    path: 'home',
-    component: HomeComponent,
-    canActivate: [AuthGuard]
   },
   {
     path: 'catalog',

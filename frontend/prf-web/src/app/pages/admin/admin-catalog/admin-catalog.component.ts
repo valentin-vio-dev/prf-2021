@@ -17,6 +17,7 @@ import { AddItemComponent } from './add-item/add-item.component';
 export class AdminCatalogComponent implements OnInit {
   products: any[] = [];
   closedSub: Subscription | any;
+  loading = false;
 
   constructor(
     private panelService: PanelService,
@@ -42,8 +43,10 @@ export class AdminCatalogComponent implements OnInit {
   }
 
   getProducts() {
+    this.loading = true;
     this.productService.getAll().subscribe((res: any) => {
       this.products = res.data.products;
+      this.loading = false;
     });
   }
 
