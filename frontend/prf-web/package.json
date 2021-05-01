@@ -8,7 +8,8 @@
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e",
-    "heroku-postbuild": "ng build --prod"
+    "heroku-postbuild": "ng build --prod",
+    "deploy-heroku": "git init && git add . && git commit -am 'deploy' && git push heroku master"
   },
   "private": true,
   "dependencies": {
