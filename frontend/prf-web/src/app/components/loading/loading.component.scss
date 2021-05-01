@@ -17,7 +17,7 @@
     width: 7px;
     height: 7px;
     border-radius: 50%;
-    background: $color-primary;
+    background: $color-white;
     margin: -4px 0 0 -4px;
   }
   .lds-roller div:nth-child(1) {
@@ -104,5 +104,6 @@
         display: flex;
         align-items: center;
         justify-content: center;
+        background-color: #00000077;
     }
 }
