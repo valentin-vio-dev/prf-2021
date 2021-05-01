@@ -1,12 +1,9 @@
 const errorResponse = require('../utils/error.handler');
 const successResponse = require('../utils/success.handler');
-
 const mongoose = require('mongoose');
 const Product = mongoose.model('product');
-
 const reqContains = require('../utils/req-contains')
 const createModelObj = require('../utils/create-model-obj')
-
 const getSchemaKeys = require('../utils/get-schema-keys');
 
 module.exports.add = function(req, res, next) {

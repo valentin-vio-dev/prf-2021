@@ -1,11 +1,8 @@
 const passport = require('passport');
-
 const errorResponse = require('../utils/error.handler');
 const successResponse = require('../utils/success.handler');
-
 const mongoose = require('mongoose');
 const User = mongoose.model('user');
-
 const reqContains = require('../utils/req-contains')
 
 module.exports.login = function(req, res, next) {
@@ -23,9 +20,7 @@ module.exports.login = function(req, res, next) {
                     });
                 })(req, res);
             }
-            
         });
-        
     } else {
         return res.status(400).send(errorResponse('Password and email are required!'));
     }

@@ -1,11 +1,8 @@
 const passport = require('passport');
-
 const errorResponse = require('../utils/error.handler');
 const successResponse = require('../utils/success.handler');
-
 const mongoose = require('mongoose');
 const User = mongoose.model('user');
-
 const createModelObj = require('../utils/create-model-obj');
 const reqContains = require('../utils/req-contains');
 

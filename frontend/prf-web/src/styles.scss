@@ -10,20 +10,17 @@ body, html, textarea {
     font-family: 'Lato', sans-serif;
 }
 
-
-
-$color-primary: #1B9CFC;
-$color-primary-active: #53b5ff;
-$color-primary-light: #b6dfff;
-$color-primary-light-active: #ddf0ff;
+$color-primary: #272727;
+$color-primary-active: #3a3a3a;
+$color-primary-light: #535353;
+$color-primary-light-active: #535353;
 $color-danger: #ff1a39;
-$color-success: #afff1a;
+$color-success: #b3e060;
 $color-white: #FFFFFF;
 $color-gray: #AAAAAA;
 $color-text: #2f343a;
 
-$shadow-normal: 0px 5px 5px 0px rgba(0, 0, 0, 0.1);
-//$shadow-normal: 0px 5px 10px 0px rgba(0, 0, 0, 0.1);
+$shadow-normal: 0px 3px 3px 0px rgba(0, 0, 0, 0.05);
 
 $padding-large: 32px;
 $padding-normal: 16px;

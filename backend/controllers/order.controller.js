@@ -1,9 +1,7 @@
 const errorResponse = require('../utils/error.handler');
 const successResponse = require('../utils/success.handler');
-
 const mongoose = require('mongoose');
 const Order = mongoose.model('order');
-
 const reqContains = require('../utils/req-contains')
 const createModelObj = require('../utils/create-model-obj')
 
