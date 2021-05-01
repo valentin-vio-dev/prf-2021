@@ -14,7 +14,7 @@
 
 .products {
     display: grid;
-    grid-template-columns: 33.3% 33.3% 33.3%;
+    grid-template-columns: minmax(min-content, max-content) minmax(min-content, max-content) minmax(min-content, max-content);
     grid-template-rows: auto;
     column-gap: $margin-normal;
     row-gap: $margin-normal;

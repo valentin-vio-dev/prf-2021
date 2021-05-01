@@ -5,13 +5,16 @@
     height: 100%;
     display: flex;
     justify-content: center;
-    background-color: #F5F5F5;
+    
 
     .content {
         width: 900px;
-        margin: $margin-large;
+        margin: 100px $margin-large $margin-large $margin-large;
         animation: page-anim 500ms;
-        margin-top: 100px;
+        background-color: $color-white;
+        padding: $padding-large;
+        box-shadow: $shadow-normal;
+        border-radius: $border-radius;
     }
 }
 

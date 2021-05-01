@@ -10,10 +10,26 @@ body, html, textarea {
     font-family: 'Lato', sans-serif;
 }
 
-$color-primary: #272727;
+body {
+    background: url('./assets/images/beer-bc.jpg');
+    background-size: 25%;
+    background-attachment: fixed;
+}
+
+body:before {
+    background-color: rgba(0, 0, 0, 0.5);
+    content: '';
+    display: block;
+    height: 100vh;
+    position: fixed;
+    width: 100%;
+    z-index: -10;
+}
+
+$color-primary: #292929;
 $color-primary-active: #3a3a3a;
-$color-primary-light: #535353;
-$color-primary-light-active: #535353;
+$color-primary-light: #808080;
+$color-primary-light-active: #949494;
 $color-danger: #ff1a39;
 $color-success: #b3e060;
 $color-white: #FFFFFF;
@@ -65,10 +81,19 @@ button {
     outline: none;
     transition: $transition;
     box-shadow: $shadow-normal;
+    background-position: center;
+    transition: background 0.8s;
 
     &:hover {
-        background-color: $color-primary-active;
+        background: $color-primary-active radial-gradient(circle, transparent 1%, $color-primary-active 1%) center / 15000%;
     }
+
+    &:active {
+        background-color: #888888;
+        background-size: 100%;
+        transition: background 0s;
+    }
+    
 
     &.clear {
         background-color: $color-primary-light;
@@ -82,6 +107,12 @@ button {
 
     &.not-available {
         background-color: $color-gray;
+
+        
+
+        &:hover {
+            background: $color-gray radial-gradient(circle, transparent 1%, $color-gray 1%) center / 15000%;
+        }
     }
 }
 

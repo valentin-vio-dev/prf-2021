@@ -21,7 +21,7 @@
                         </div>
                     </div>
                     <div class="remove-button">
-                        <button (click)="remove(product)">Remove item</button>
+                        <button (click)="remove(product)">Remove item{{ product.items > 1 ? 's' : ''}}</button>
                     </div>
                 </div>
             </app-card>
