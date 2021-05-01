@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { AuthService } from 'src/app/services/auth/auth.service';
 import { GlobalService } from 'src/app/services/global/global.service';
@@ -14,6 +14,7 @@ export class TopNavComponent implements OnInit {
   activeLink: string = '';
   user: any;
   navs: any[] = [];
+  @Input() isLogin = false;
 
   constructor(
     private route: ActivatedRoute,
