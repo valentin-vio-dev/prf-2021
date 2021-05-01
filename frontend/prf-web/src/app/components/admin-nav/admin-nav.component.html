@@ -5,8 +5,10 @@
                 <a
                 *ngIf="nav.label" 
                 [routerLink]="[nav.path]"
-                [class]="nav.label === activeLink ? 'active' : ''"
-                >{{ nav.name }}</a>
+                [class]="nav.label === activeLink ? 'active' : ''">
+                    <i class="material-icons">{{ nav.icon }}</i>
+                    {{ nav.name }}
+                </a>
             </li>
         </ul>
     </div>

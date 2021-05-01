@@ -28,10 +28,12 @@ nav {
         padding: $padding-small;
         display: flex;
         flex-direction: row;
+        
         ul {
             display: flex;
             flex-direction: row;
             margin: 0px;
+
             li {
                 list-style-type: none;
                 position: relative;

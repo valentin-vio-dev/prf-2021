@@ -19,9 +19,9 @@ export class AdminNavComponent implements OnInit {
 
   getNavs() {
     return [
-      { name: 'Users', path: '/admin/users', label: 'users' },
-      { name: 'Catalog', path: '/admin/catalog', label: 'catalog' },
-      { name: 'Orders', path: '/admin/orders', label: 'orders' },
+      { name: 'Users', path: '/admin/users', label: 'users', icon: 'perm_identity' },
+      { name: 'Catalog', path: '/admin/catalog', label: 'catalog', icon: 'store' },
+      { name: 'Orders', path: '/admin/orders', label: 'orders', icon: 'view_list' },
     ];
   }
 

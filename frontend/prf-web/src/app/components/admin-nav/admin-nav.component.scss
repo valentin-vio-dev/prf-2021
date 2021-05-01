@@ -22,7 +22,7 @@ nav {
 
             li {
                 list-style-type: none;
-                margin: $margin-normal;
+                margin: $margin-small;
 
                 a {
                     color: $color-gray;
@@ -30,6 +30,10 @@ nav {
                     transition: $transition;
                     padding: $padding-normal;
                     cursor: pointer;
+                    display: flex;
+                    flex-direction: row;
+                    justify-content: flex-start;
+                    align-items: center;
 
                     &:hover {
                         opacity: 1;
@@ -39,6 +43,11 @@ nav {
                     &.active {
                         opacity: 1;
                         color: $color-primary;
+                    }
+
+                    i {
+                        margin-right: $margin-small;
+
                     }
                 }
             }

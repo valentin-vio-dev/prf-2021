@@ -13,8 +13,10 @@
                     <div class="order-header">
                         <div class="customer" *ngIf="order.customer">
                             <span class="text-primary">{{ order.customer.firstname + ' ' + order.customer.lastname }}</span>
-                             - 
-                            <span>{{ order.address.country }}</span>
+                            <span class="row-center">
+                                <i class="material-icons">language</i>
+                                {{ order.address.country }}
+                            </span>
                         </div>
                         <div>
                             <span class="text-primary">{{ capitalizeFirstLetter(order.status) }}</span>

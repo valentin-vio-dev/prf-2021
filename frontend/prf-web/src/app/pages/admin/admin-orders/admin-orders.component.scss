@@ -5,6 +5,25 @@
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
+    
+    .customer {
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+
+        .row-center {
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+            align-items: center;
+
+            i {
+                margin-right: $margin-small;
+                margin-left: $margin-small;
+            }
+        }
+    }
 }
 
 .item {
