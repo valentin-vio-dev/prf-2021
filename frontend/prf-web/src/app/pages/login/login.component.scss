@@ -34,32 +34,3 @@
         }
     }
 }
-
-@media only screen and (max-width: 900px) {
-    .container {
-        height: 100%;
-        width: 100%;
-        app-card {
-            
-            margin: $margin-normal;
-            .card-container {
-                display: flex;
-                flex-direction: column;
-
-                div {
-                    width: 100%;
-    
-                    &:first-of-type {
-                        margin-right: 0px;
-                        margin-bottom: $margin-large;
-                    }
-    
-                    &:last-of-type {
-                        padding-left: 0px;
-                    }
-                }
-            }
-        }
-    }
-    
-  }
