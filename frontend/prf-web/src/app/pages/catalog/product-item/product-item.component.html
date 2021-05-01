@@ -2,13 +2,15 @@
     <app-expansion-panel>
         <div header class="">
             <div class="mb">
-                <span class="text-primary">{{ product.name }}</span>
+                <span class="text-primary">
+                    <b>{{ product.name }}</b>
+                </span>
             </div>
             <div class="image-holder mb">
                 <img [src]="product.image || '../../../../../../assets/images/default_image.png'" alt="">
             </div>
             <div class="price mb">
-                <span class="text-primary title center">Price</span>
+                <span class="text-primary title center o-50">Price</span>
                 <span class="value center">{{ getFormatedPrice(product.price) }} Ft,-</span>
             </div>
         </div>
@@ -23,24 +25,12 @@
                     <span class="value">{{ product.manufacturer || '-' }}</span>
                 </div>
                 <div class="row">
-                    <span class="text-primary title">Interface</span>
-                    <span class="value">{{ product.interface || '-' }}</span>
-                </div>
-                <div class="row">
-                    <span class="text-primary title">Chipset</span>
-                    <span class="value">{{ product.chipset || '-' }}</span>
-                </div>
-                <div class="row">
-                    <span class="text-primary title">Memory size</span>
-                    <span class="value">{{ product.memory_size || '-' }} <span *ngIf="product.memory_size">MB</span></span>
-                </div>
-                <div class="row">
                     <span class="text-primary title">Price</span>
                     <span class="value">{{ getFormatedPrice(product.price) }} Ft,-</span>
                 </div>
                 <div class="row">
-                    <span class="text-primary title">Avaibility</span>
-                    <span class="value" [style.color]="product.avaible ? '#afff1a' : '#ff1a39'">{{ product.avaible ? 'Avaible' : 'Not avaible' }}</span>
+                    <span class="text-primary title">Availability</span>
+                    <span class="value" [style.color]="product.available ? '#afff1a' : '#ff1a39'">{{ product.available ? 'Available' : 'Not available' }}</span>
                 </div>
                 <div class="row">
                     <span class="text-primary title">Description</span>
@@ -49,7 +39,8 @@
             </div>
         </div>
     </app-expansion-panel>
-    <button class="mt" (click)="addToCart()" *ngIf="type == 'catalog' && product.avaible">Add to shopping cart</button>
+    <button class="mt" (click)="addToCart()" *ngIf="type == 'catalog' && product.available">Add to shopping cart</button>
+    <button class="mt not-available" *ngIf="type == 'catalog' && !product.available">Not available</button>
     <button class="mt" (click)="addToCart()" *ngIf="type == 'cart'">Remove from shopping cart</button>
     <button class="mt" (click)="editProduct()" *ngIf="type == 'admin'">Edit</button>
 </app-card>

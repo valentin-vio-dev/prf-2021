@@ -79,6 +79,10 @@ button {
             background-color: $color-primary-light-active;
         }
     }
+
+    &.not-available {
+        background-color: $color-gray;
+    }
 }
 
 .fill-loading {

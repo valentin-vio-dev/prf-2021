@@ -2,7 +2,7 @@
 <app-page [loading]="loading">
     <h1 class="text-primary floating-title">My orders</h1>
 
-    <div class="orders" *ngIf="!loading">
+    <div class="orders" *ngIf="orders.length > 0; else noProds">
         <app-card *ngFor="let order of orders">
             <div class="at mb">
                 <small>Ordered at: 
@@ -26,4 +26,9 @@
             </div>
         </app-card>
     </div>
+    <ng-template #noProds>
+        <div class="wqe" *ngIf="!loading">
+            <h3>No orders found :(</h3>
+        </div>
+    </ng-template>
 </app-page>

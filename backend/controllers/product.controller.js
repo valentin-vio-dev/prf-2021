@@ -7,7 +7,7 @@ const createModelObj = require('../utils/create-model-obj')
 const getSchemaKeys = require('../utils/get-schema-keys');
 
 module.exports.add = function(req, res, next) {
-    let fields = ['name', 'manufacturer', 'chipset', 'avaible'];
+    let fields = ['name', 'manufacturer', 'price', 'available', 'alcohol'];
     if (reqContains(req, fields)) {
         let bodyKeys = Object.keys(req.body);
         let schemakeys = getSchemaKeys(Product);
