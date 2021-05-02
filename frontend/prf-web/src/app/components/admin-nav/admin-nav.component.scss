@@ -35,19 +35,33 @@ nav {
                     justify-content: flex-start;
                     align-items: center;
 
+                    i {
+                        transition: $transition;
+                    }
+
                     &:hover {
                         opacity: 1;
                         color: $color-primary;
+
+                        i {
+                            margin-right: $margin-small;
+                            color: $color-primary;
+                        }
                     }
 
                     &.active {
                         opacity: 1;
                         color: $color-primary;
+
+                        i {
+                            margin-right: $margin-small;
+                            color: $color-primary;
+                        }
                     }
 
                     i {
                         margin-right: $margin-small;
-
+                        color: $color-gray;
                     }
                 }
             }

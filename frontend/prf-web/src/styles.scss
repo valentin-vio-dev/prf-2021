@@ -27,12 +27,12 @@ body:before {
     z-index: -10;
 }
 
-$color-primary: #292929;
-$color-primary-active: #3a3a3a;
-$color-primary-light: #808080;
-$color-primary-light-active: #949494;
+$color-primary: #ffb04f;
+$color-primary-active: #ffc884;
+$color-primary-light: #ffdcb0;
+$color-primary-light-active: #ffb04f;
 $color-danger: #ff1a39;
-$color-success: #b3e060;
+$color-success: #3dc214;
 $color-white: #FFFFFF;
 $color-gray: #AAAAAA;
 $color-text: #2f343a;
@@ -98,7 +98,7 @@ button {
     }
 
     &:active {
-        background-color: #888888;
+        background-color: #ffb04f;
         background-size: 100%;
         transition: background 0s;
     }
