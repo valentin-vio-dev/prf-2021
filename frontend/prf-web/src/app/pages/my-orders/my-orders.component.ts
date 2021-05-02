@@ -31,6 +31,13 @@ export class MyOrdersComponent implements OnInit {
             if (i == this.orders.length) {
               this.loading = false;
             }
+          }, (err: any) => {
+            i++;
+            order.products.push({ name: 'Not found!' });
+
+            if (i == this.orders.length) {
+              this.loading = false;
+            }
           });
         });
       });

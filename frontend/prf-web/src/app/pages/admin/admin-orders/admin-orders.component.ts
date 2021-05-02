@@ -38,6 +38,13 @@ export class AdminOrdersComponent implements OnInit {
             if (i == this.orders.length) {
               this.loading = false;
             }
+          }, (err: any) => {
+            i++;
+            order.products.push({ name: 'Not found!' });
+
+            if (i == this.orders.length) {
+              this.loading = false;
+            }
           });
         });
         this.userService.getUserById(order.customerId).subscribe((re: any) => {
@@ -54,7 +61,7 @@ export class AdminOrdersComponent implements OnInit {
   getTotalPrice(order: any) {
     let sum = 0;
     for (let i=0; i<order.orders.length; i++) {
-      sum += order.orders[i].quantity * order.products[i].price;
+      sum += order.orders[i].quantity * (order.products[i].price || 0);
     }
     return sum;
   }

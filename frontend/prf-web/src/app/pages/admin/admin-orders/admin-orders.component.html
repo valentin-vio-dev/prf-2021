@@ -33,7 +33,7 @@
                                 </div>
                                 <div class="info column">
                                     <h4 class="text-primary no-margin">{{ product.name }}</h4>
-                                    <div>{{ order.orders[i].quantity }}x - {{ getFormatedPrice(product.price * order.orders[i].quantity) }} Ft</div>
+                                    <div *ngIf="product.price">{{ order.orders[i].quantity }}x - {{ getFormatedPrice(product.price * order.orders[i].quantity) }} Ft</div>
                                 </div>
                             </div>
                         </div>
