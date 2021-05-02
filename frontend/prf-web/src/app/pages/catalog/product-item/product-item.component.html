@@ -3,7 +3,7 @@
         <div header class="">
             <div class="mb">
                 <span class="text-primary">
-                    <b>{{ product.name }}</b>
+                    <b>{{ product.name }} ({{ product.alcohol }}%)</b>
                 </span>
             </div>
             <div class="image-holder mb">
@@ -35,6 +35,10 @@
                 <div class="row">
                     <span class="text-primary title">Description</span>
                     <span class="value">{{ product.description || '-' }}</span>
+                </div>
+                <div class="row">
+                    <span class="text-primary title">Alcohol</span>
+                    <span class="value">{{ product.alcohol || '-' }}%</span>
                 </div>
             </div>
         </div>

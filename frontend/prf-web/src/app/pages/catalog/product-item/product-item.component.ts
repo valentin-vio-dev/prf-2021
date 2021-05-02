@@ -26,7 +26,6 @@ export class ProductItemComponent implements OnInit {
 
   addToCart() {
     if (!this.product.available) return;
-
     this.toastService.create('Product added to your shopping cart!', 2000);
     this.globalService.addToCart(this.product._id);
     this.globalService.changeCart();
