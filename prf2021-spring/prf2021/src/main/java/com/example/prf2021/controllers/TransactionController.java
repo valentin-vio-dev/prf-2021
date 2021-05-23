@@ -39,7 +39,7 @@ public class TransactionController {
     }
 
     @PostMapping(path="/transactions/add", consumes = "application/json")
-    public String addTransaction(@RequestBody Transaction transaction) {
+    public String addNewTransaction(@RequestBody Transaction transaction) {
         if (!transaction.allRequiredSet()) {
             return "Some fileds are missing!";
         }

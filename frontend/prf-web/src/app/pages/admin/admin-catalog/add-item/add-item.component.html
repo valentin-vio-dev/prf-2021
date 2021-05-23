@@ -1,5 +1,9 @@
 <form [formGroup]="form">
     <h1 class="text-primary">{{ editing ? 'Edit ' : 'Add new ' }} product</h1>
+    <app-input label="With PostgreSQL database and SpringBoot" *ngIf="!editing">
+        <input type="checkbox" [(ngModel)]="withSpring" [ngModelOptions]="{standalone: true}">
+    </app-input>
+    <br>
     <app-input label="Name" required="true">
         <input type="text" formControlName="name">
     </app-input>

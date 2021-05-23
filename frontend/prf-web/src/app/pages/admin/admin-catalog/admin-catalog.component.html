@@ -16,5 +16,12 @@
         <div class="products">
             <app-product-item *ngFor="let product of products" [product]="product" type="admin"></app-product-item>
         </div>
+        <br>
+        <div class="header">
+            <h3>Catalog - Spring Boot</h3>
+        </div>
+        <div class="products">
+            <app-product-item *ngFor="let product of productsSpring" [product]="product" type="admin" [spring]="true"></app-product-item>
+        </div>
     </div>
 </app-page>

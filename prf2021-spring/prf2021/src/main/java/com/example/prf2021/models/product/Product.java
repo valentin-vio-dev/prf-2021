@@ -20,10 +20,11 @@ public class Product {
     private double alcohol;
     private boolean available;
     private String description;
+    private String image;
     
     public Product() {}
 
-    public Product(int id, String name, String manufacturer, int price, double alcohol, boolean available, String description) {
+    public Product(int id, String name, String manufacturer, int price, double alcohol, boolean available, String description, String image) {
         this.id = id;
         this.name = name;
         this.manufacturer = manufacturer;
@@ -31,6 +32,7 @@ public class Product {
         this.alcohol = alcohol;
         this.available = available;
         this.description = description;
+        this.image = image;
     }
 
     public int getId() {
@@ -91,6 +93,24 @@ public class Product {
 
     public boolean allRequiredSet() {
         return name != null && !name.equals("") && manufacturer != null && !manufacturer.equals("");
+    }
+
+    public String getImage() {
+        return image;
+    }
+
+    public void setImage(String image) {
+        this.image = image;
+    }
+
+    public void copy(Product product) {
+        this.name = product.getName();
+        this.manufacturer = product.getManufacturer();
+        this.price = product.getPrice();
+        this.alcohol = product.getAlcohol();
+        this.available = product.isAvailable();
+        this.description = product.getDescription();
+        this.image = product.getImage();
     }
 
     @Override

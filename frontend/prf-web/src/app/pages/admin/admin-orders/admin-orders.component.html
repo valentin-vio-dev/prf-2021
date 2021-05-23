@@ -80,4 +80,58 @@
             </app-expansion-panel>
         </app-card>
     </div>
+
+    <div class="orders" *ngIf="!loadingSpring">
+        <div class="header">
+            <h3>Orders - (Spring Boot)</h3>
+        </div>
+        <app-card *ngFor="let order of ordersSpring">
+            <app-expansion-panel *ngIf="order.customer">
+                <div header>
+                    <div class="order-header">
+                        <div class="customer">
+                            <span class="text-primary">{{ order.customer }}</span>
+                        </div>
+                        <div>
+                            <span class="text-primary">{{ capitalizeFirstLetter(order.status) }}</span>
+                            <span *ngIf="order.status == 'pending'"> | {{ order.date | date }}</span>
+                        </div>
+                    </div>
+                </div>
+                <div content>
+                    <div class="prod-cont mt">
+                        <div class="item mb">
+                            <div class="img-info row">
+                                <div class="image-container">
+                                    <img [src]="order.product && order.product.image || '../../../../../../assets/images/default_image.png'" alt="">
+                                </div>
+                                <div class="info column">
+                                    <h4 class="text-primary no-margin">{{ order.product ? order.product.name : 'Not found!' }}</h4>
+                                    <div *ngIf="order.product && order.product.price">1x - {{ getFormatedPrice(order.full_price) }} Ft</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <hr>
+                    <div class="texts">
+                        <h4>Info</h4>
+                        <div class="row">
+                            <span class="text-primary title">Ordered at</span>
+                            <span class="value">{{ order.date | date }}</span>
+                        </div>
+                        <div class="row">
+                            <span class="text-primary title">Total</span>
+                            <span class="value">{{ getFormatedPrice(order.full_price) }} Ft,-</span>
+                        </div>
+                    </div>
+                    <div buttons *ngIf="order.status == 'pending'">
+                        <button (click)="complete(order, true)">
+                            <i class="material-icons">done</i>
+                            Complete order
+                        </button>
+                    </div>
+                </div>
+            </app-expansion-panel>
+        </app-card>
+    </div>
 </app-page>

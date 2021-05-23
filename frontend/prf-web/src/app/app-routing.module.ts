@@ -7,6 +7,7 @@ import { AdminCatalogComponent } from './pages/admin/admin-catalog/admin-catalog
 import { AdminOrdersComponent } from './pages/admin/admin-orders/admin-orders.component';
 import { AdminUsersComponent } from './pages/admin/admin-users/admin-users.component';
 import { AdminComponent } from './pages/admin/admin.component';
+import { CatalogSpringComponent } from './pages/catalog-spring/catalog-spring.component';
 import { CatalogComponent } from './pages/catalog/catalog.component';
 import { HomeComponent } from './pages/home/home.component';
 import { LoginComponent } from './pages/login/login.component';
@@ -28,6 +29,11 @@ const routes: Routes = [
   {
     path: 'catalog',
     component: CatalogComponent,
+    canActivate: [AuthGuard]
+  },
+  {
+    path: 'catalog-spring',
+    component: CatalogSpringComponent,
     canActivate: [AuthGuard]
   },
   {

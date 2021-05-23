@@ -34,5 +34,12 @@ public class ProductServiceImpl implements ProductService {
     public void deleteProductById(int id) {
         this.productRepository.deleteById(id);
     }
+
+    @Override
+    public void updateProduct(Product product) {
+        Product current = this.productRepository.findById(product.getId()).get();
+        current.copy(product);
+        this.productRepository.save(current);
+    }
     
 }

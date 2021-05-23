@@ -22,15 +22,19 @@ public class Transaction {
     private Date date;
     private int full_price;
     private String status;
+    private String customer;
+    private String customer_id;
 
     public Transaction() {}
 
-    public Transaction(int id, int product_id, Date date, int full_price, String status) {
+    public Transaction(int id, int product_id, Date date, int full_price, String status, String customer, String customer_id) {
         this.id = id;
         this.product_id = product_id;
         this.date = date;
         this.full_price = full_price;
         this.status = status;
+        this.customer = customer;
+        this.customer_id = customer_id;
     }
 
     public int getId() {
@@ -41,6 +45,14 @@ public class Transaction {
         this.id = id;
     }
 
+    public int getProduct_id() {
+        return product_id;
+    }
+
+    public void setProduct_id(int product_id) {
+        this.product_id = product_id;
+    }
+
     public Date getDate() {
         return date;
     }
@@ -49,11 +61,11 @@ public class Transaction {
         this.date = date;
     }
 
-    public int getfull_price() {
+    public int getFull_price() {
         return full_price;
     }
 
-    public void setfull_price(int full_price) {
+    public void setFull_price(int full_price) {
         this.full_price = full_price;
     }
 
@@ -65,26 +77,30 @@ public class Transaction {
         this.status = status;
     }
 
-    public int getproduct_id() {
-        return product_id;
+    public String getCustomer() {
+        return customer;
     }
 
-    public void setproduct_id(int product_id) {
-        this.product_id = product_id;
+    public void setCustomer(String customer) {
+        this.customer = customer;
     }
 
     public boolean allRequiredSet() {
-        return date != null && full_price != 0 && product_id != 0;
+        return date != null && full_price != 0 && product_id != 0 && customer != null && !customer.equals("") && customer_id != null && !customer_id.equals("");
+    }
+
+    public String getCustomer_id() {
+        return customer_id;
+    }
+
+    public void setCustomer_id(String customer_id) {
+        this.customer_id = customer_id;
     }
 
     @Override
     public String toString() {
-        return "Transaction [date=" + date + ", full_price=" + full_price + ", id=" + id + ", product_id=" + product_id
-                + ", status=" + status + "]";
+        return "Transaction [customer=" + customer + ", date=" + date + ", full_price=" + full_price + ", id=" + id
+                + ", product_id=" + product_id + ", status=" + status + "]";
     }
-
-    
-    
-
     
 }

@@ -46,6 +46,7 @@ export class TopNavComponent implements OnInit {
   getNavs() {
     return [
       { name: 'Catalog', path: '/catalog', label: 'catalog', icon: 'store' },
+      { name: 'Catalog (Spring Boot)', path: '/catalog-spring', label: 'catalog-spring', icon: 'store' },
       { name: 'My orders', path: '/my-orders', label: 'my-orders', icon: 'done_all'},
       { name: 'Shopping cart', path: '/shopping-cart', label: 'shopping-cart', icon: 'shopping_cart' },
       { name: 'Admin', path: '/admin', label: 'admin', icon: 'https' }

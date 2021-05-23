@@ -17,7 +17,7 @@ public class TransactionServiceImpl implements TransactionService {
 
     @Override
     public void addTransaction(Transaction transaction) {
-        transaction.setStatus("ordered");
+        transaction.setStatus("pending");
         this.transactionRepository.save(transaction);
     }
 

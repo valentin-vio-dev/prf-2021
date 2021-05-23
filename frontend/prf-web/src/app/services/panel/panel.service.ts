@@ -9,6 +9,7 @@ export class PanelService {
   componentRef: any;
   panelRef: any;
   data: any;
+  opts: any;
 
   constructor(
     private componentFactoryResolver: ComponentFactoryResolver,
@@ -16,8 +17,9 @@ export class PanelService {
     private injector: Injector
   ) { }
 
-  create(component: any, data?: any) {
+  create(component: any, data?: any, opts?: any) {
     this.data = data;
+    this.opts = opts;
     document.body.className = 'no-scroll';
 
     this.componentRef = this.componentFactoryResolver.resolveComponentFactory(component).create(this.injector);
@@ -37,7 +39,6 @@ export class PanelService {
       panelContainer.className = 'panel open';
     }, 10);
 
-    
     // 5. Wait some time and remove it from the component tree and from the DOM
     /*setTimeout(() => {
         this.appRef.detachView(componentRef.hostView);

@@ -26,6 +26,7 @@ import { AdminOrdersComponent } from './pages/admin/admin-orders/admin-orders.co
 import { ProductItemComponent } from './pages/catalog/product-item/product-item.component';
 import { MyOrdersComponent } from './pages/my-orders/my-orders.component';
 import { LoadingComponent } from './components/loading/loading.component';
+import { CatalogSpringComponent } from './pages/catalog-spring/catalog-spring.component';
 
 @NgModule({
   declarations: [
@@ -50,7 +51,8 @@ import { LoadingComponent } from './components/loading/loading.component';
     AdminOrdersComponent,
     ProductItemComponent,
     MyOrdersComponent,
-    LoadingComponent
+    LoadingComponent,
+    CatalogSpringComponent
   ],
   imports: [
     BrowserModule,

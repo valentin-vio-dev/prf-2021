@@ -16,6 +16,7 @@ import { AddItemComponent } from './add-item/add-item.component';
 })
 export class AdminCatalogComponent implements OnInit {
   products: any[] = [];
+  productsSpring: any[] = [];
   closedSub: Subscription | any;
   loading = false;
 
@@ -29,7 +30,7 @@ export class AdminCatalogComponent implements OnInit {
     this.getProducts();
     this.globalService.productChangeEmitter.subscribe(() => {
       this.getProducts();
-    })
+    });
   }
 
   addCatalogItem() {
@@ -46,7 +47,10 @@ export class AdminCatalogComponent implements OnInit {
     this.loading = true;
     this.productService.getAll().subscribe((res: any) => {
       this.products = res.data.products;
-      this.loading = false;
+      this.productService.getAllSpring().subscribe((ress: any) => {
+        this.productsSpring = ress;
+        this.loading = false;
+      });
     });
   }
 

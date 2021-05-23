@@ -1,6 +1,7 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { ROUTE } from 'src/app/shared/const/backend.urls';
+import { SPRING_ROUTE } from 'src/app/shared/const/spring.urls';
 
 @Injectable({
   providedIn: 'root'
@@ -33,5 +34,29 @@ export class ProductService {
     let body = product;
     body._id = id;
     return this.http.put(ROUTE.PRODUCT.EDIT, body);
+  }
+
+  /*------------ SPRING ------------------*/
+
+  getAllSpring() {
+    return this.http.get(SPRING_ROUTE.PRODUCT.GET_ALL);
+  }
+
+  addProductSpring(product: any) {
+    return this.http.post(SPRING_ROUTE.PRODUCT.ADD, product, { responseType: 'text' });
+  }
+
+  getByIdSpring(id: string) {
+    return this.http.get(SPRING_ROUTE.PRODUCT.GET_BY_ID + id);
+  }
+
+  deleteSpring(id: string) {
+    return this.http.delete(SPRING_ROUTE.PRODUCT.DELETE + id, { responseType: 'text' });
+  }
+
+  editProductSpring(id: any, product: any) {
+    let body = Object.assign({}, product);
+    body.id = id;
+    return this.http.put(SPRING_ROUTE.PRODUCT.UPDATE, body, { responseType: 'text' });
   }
 }

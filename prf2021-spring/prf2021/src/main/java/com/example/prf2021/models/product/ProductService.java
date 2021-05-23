@@ -7,4 +7,5 @@ public interface ProductService {
     List<Product> getAllProduct();
     Product getProductById(int id);
     void deleteProductById(int id);
+    void updateProduct(Product product);
 }
